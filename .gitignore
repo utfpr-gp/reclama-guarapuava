@@ -22,3 +22,6 @@
 hs_err_pid*
 /src/main/resources/rebel.xml
 /target/
+
+#Persistence
+/src/main/resources/META-INF/persistence.xml
