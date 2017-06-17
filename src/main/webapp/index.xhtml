@@ -1,12 +1,115 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
-
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                template="./WEB-INF/templates/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:define name="content">
+        <header id="home-page-header">
+            <img id="image-header" src="resources/images/gp.jpg"></img>
+            
+            <dir id="box-action">
+                <a class="waves-effect waves-light btn blue darken-3">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    Entrar com o Facebook
+                </a>
+            </dir>
+            
+            <div id="box-text-header" class="center-align">
+                <p>Ajude a construir uma Guarapuava melhor</p>
+                <p>Entre e nos conte o problema que você identificou</p>
+            </div>
+        </header>
+        
+        <article id="index-content" class="container">
+            <header class="center-align">
+                <h1>Publique, veja, avalie, compartilhe e opine</h1>
+                <span>para juntos fazermos uma cidade melhor</span>
+            </header>
+            
+            <div class="row">
+                <div class="event-card grey lighten-1 col s12">
+                    <div class="container card-body">
+                        <div class="row">
+                            <div class="col s2 card-icon">
+                                <i class="fa fa-th-large" aria-hidden="true"></i>
+                            </div>
+                            <div class="col s8 card-text center-align">
+                                <p>TODAS OCORRÊNCIAS</p>
+                            </div>
+                            <div class="col s2 card-action">
+                                <div class="box center-align">
+                                    <span>59</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="event-card light-green lighten-2 col s6">
+                    <div class="container card-body">
+                        <div class="row">
+                            <div class="col s2 card-icon">
+                                <i class="fa fa-envelope-open" aria-hidden="true"></i>
+                            </div>
+                            <div class="col s10 card-text center-align">
+                                <p>Buracos</p>
+                                <p>12 OCORRÊNCIAA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card orange lighten-4 col s6">
+                    <div class="container card-body">
+                        <div class="row">
+                            <div class="col s2 card-icon">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </div>
+                            <div class="col s8 card-text center-align">
+                                <p>LIXO</p>
+                            </div>
+                            <div class="col s2 card-action">
+                                <div class="box center-align">
+                                    <span>14</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="event-card green darken-1 col s6">
+                    <div class="container card-body">
+                        <div class="row">
+                            <div class="col s2 card-icon">
+                                <i class="fa fa-th-large" aria-hidden="true"></i>
+                            </div>
+                            <div class="col s10 card-text center-align">
+                                <p>MEIO AMBIENTE</p>
+                                <p>12 OCORRÊNCIAA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card amber accent-3 col s6">
+                    <div class="container card-body">
+                        <div class="row">
+                            <div class="col s2 card-icon">
+                                <i class="fa fa-th-large" aria-hidden="true"></i>
+                            </div>
+                            <div class="col s10 card-text center-align">
+                                <p>SINALIZAÇÃO</p>
+                                <p>12 OCORRÊNCIAA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </ui:define>
+</ui:composition>
