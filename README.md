@@ -19,7 +19,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software
 
 ```
-NetBeans 8.2 IDE
+NetBeans 8.2 IDE (or Intellij IDEA Ultimate >= 17.1.4)
 Tomcat
 JRebel
 MYSQL
@@ -40,5 +40,6 @@ MYSQL
 * **Lucas Lagj**
 * **Jefferson Henrique Ramos**
 * **Luiz Felipe Basile Ribeiro**
+* **Lucas Antonio Ramos Sartori**
 
 See also the list of [contributors](https://github.com/utfpr-gp/reclama-guarapuava) who participated in this project.
