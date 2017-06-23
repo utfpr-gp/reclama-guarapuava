@@ -86,6 +86,14 @@
             <version>1.0.10</version>
         </dependency>
 
+        <!-- Prettyfaces-->
+        <!-- for JSF 2.x -->
+        <dependency>
+            <groupId>com.ocpsoft</groupId>
+            <artifactId>prettyfaces-jsf2</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -106,6 +114,58 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
+            </plugin>
+
+            <!-- SASS-->
+            <plugin>
+                <groupId>org.jasig.maven</groupId>
+                <artifactId>sass-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>update-stylesheets</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <!-- Set source and destination dirs -->
+                            <source>
+                                <directory>${basedir}/src/main/webapp/resources/css</directory>
+                            </source>
+                            <destination>${basedir}/src/main/webapp/resources/css</destination>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+
+            <!-- PODER CHAMAR OS ARQUIVOS PELO LIBRARY NAME-->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+
+                        <configuration>
+                            <outputDirectory>${basedir}/target/reclama-guarapuava-1.0-SNAPSHOT/resources
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/webapp/resources</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

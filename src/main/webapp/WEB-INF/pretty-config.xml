@@ -1,0 +1,22 @@
+
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+    <url-mapping id="home">
+        <pattern value="/" />
+        <view-id value="/index.xhtml"/>
+    </url-mapping>
+
+    <url-mapping id="result">
+        <pattern value="/ocorrencias/bairros/"/>
+        <view-id value="/view/ocorrencias-por-bairro.xhtml"/>
+    </url-mapping>
+
+    <url-mapping id="not-found">
+        <pattern value="/404" />
+        <view-id value="/error/404.xhtml" />
+    </url-mapping>
+
+</pretty-config>
