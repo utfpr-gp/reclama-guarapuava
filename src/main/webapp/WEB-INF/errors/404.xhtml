@@ -1,16 +1,23 @@
 <ui:composition template="/WEB-INF/templates/template.xhtml"
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui"
-        >
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+>
 
-<ui:define name="content">
+    <ui:define name="content">
         <div class="container">
             <div class="col offset-s8 col offset-s4">
-                <h3>Sinto Muito mas a pagina nao existe</h3>
-              <p>carregar uma imagem aqui</p>
+                <div class="errors">
+                    <h3>Sinto Muito</h3>
+                    <h3>A sua página nao pode ser encontrada</h3>
+                    <div class="img">
+                        <h:graphicImage library="images" name="erros/direction.png" />
+                    </div>
+                </div>
             </div>
         </div>
     </ui:define>

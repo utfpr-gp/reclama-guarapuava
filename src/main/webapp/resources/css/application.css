@@ -132,11 +132,24 @@ h6 {
 }
 
 /**********************************************
+************ Another styles ********************
+***********************************************/
+.errors {
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+/**********************************************
 ************ Responsive styles ****************
 ***********************************************/
 @media only screen and (max-width: 800px) {
   #box-text-header {
     font-size: large;
+  }
+
+  .errors > img {
+    height: 50% !important;
+    width: 50% !important;
   }
 }
 @media only screen and (max-width: 380px) {

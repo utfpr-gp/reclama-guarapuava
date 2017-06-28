@@ -9,14 +9,14 @@
         <view-id value="/index.xhtml"/>
     </url-mapping>
 
-    <url-mapping id="result">
-        <pattern value="/ocorrencias/bairros/"/>
-        <view-id value="/view/ocorrencias-por-bairro.xhtml"/>
+    <url-mapping id="ocorrencias-bairros">
+        <pattern value="/ocorrencias/bairros"/>
+        <view-id value="/WEB-INF/view/ocorrencias-por-bairro.xhtml"/>
     </url-mapping>
 
     <url-mapping id="not-found">
         <pattern value="/404" />
-        <view-id value="/error/404.xhtml" />
+        <view-id value="/WEB-INF/error/404.xhtml" />
     </url-mapping>
 
 </pretty-config>
