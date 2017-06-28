@@ -3,12 +3,14 @@ package br.edu.utfpr.bean;
 import br.edu.utfpr.model.Occurrence;
 import br.edu.utfpr.model.service.NeighborhoodService;
 import br.edu.utfpr.model.service.OccurrenceService;
+import br.edu.utfpr.util.MessageUtil;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 
 /**
  * Created by sartori on 27/06/17.
@@ -16,6 +18,7 @@ import java.util.List;
 @ManagedBean
 @SessionScoped
 public class OccurrenceBean {
+
     private Occurrence occurrence;
     private List<Occurrence> occurrenceList;
     private OccurrenceService occurrenceService;
@@ -24,14 +27,14 @@ public class OccurrenceBean {
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         occurrence = new Occurrence();
         occurrenceList = new ArrayList<>();
         occurrenceService = new OccurrenceService();
     }
 
-    public List<Occurrence> findAll(){
-        return occurrenceService.findAll();
+    public List<Occurrence> findAll() {
+        return occurrenceList = occurrenceService.findAll();
     }
 
     public Occurrence getOccurrence() {
@@ -57,4 +60,36 @@ public class OccurrenceBean {
     public void setOccurrenceService(OccurrenceService occurrenceService) {
         this.occurrenceService = occurrenceService;
     }
+
+    public void delete(Occurrence occurrence) {
+        boolean isSuccess = occurrenceService.delete(occurrence);
+        if (isSuccess) {
+            this.occurrenceList.remove(occurrence);
+            MessageUtil.showMessage("Removido com sucesso", "", FacesMessage.SEVERITY_INFO);
+        } else {
+            MessageUtil.showMessage("Falha na remoção", "", FacesMessage.SEVERITY_ERROR);
+        }
+        this.occurrence = new Occurrence();
+    }
+
+    public void persist() {
+
+        if (occurrence.getId() == null) {
+            if (occurrenceService.save(occurrence)) {
+                this.occurrenceList.add(occurrence);
+                MessageUtil.showMessage("Persistido com sucesso", "", FacesMessage.SEVERITY_INFO);
+            } else {
+                MessageUtil.showMessage("Falha ao persistir", "", FacesMessage.SEVERITY_ERROR);
+            }
+        } else {
+            if (occurrenceService.update(occurrence)) {
+                MessageUtil.showMessage("Alterado com sucesso", "", FacesMessage.SEVERITY_INFO);
+            } else {
+                MessageUtil.showMessage("Falha na alteração", "", FacesMessage.SEVERITY_ERROR);
+            }
+        }
+
+        this.occurrence = new Occurrence();
+    }
+
 }
