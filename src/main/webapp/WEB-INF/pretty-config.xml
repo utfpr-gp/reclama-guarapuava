@@ -11,12 +11,22 @@
 
     <url-mapping id="ocorrencias-bairros">
         <pattern value="/ocorrencias/bairros"/>
-        <view-id value="/WEB-INF/view/ocorrencias-por-bairro.xhtml"/>
+        <view-id value="/view/bairros/ocorrencias-por-bairro.xhtml"/>
     </url-mapping>
+
+    <url-mapping id="cadastro-bairro">
+        <pattern value="/bairros"/>
+        <view-id value="/view/bairros/register.xhtml"/>
+    </url-mapping>
+
+    <!--<url-mapping id="ocorrencias-bairros">-->
+        <!--<pattern value="/ocorrencias/bairros/#id/detalhes"/>-->
+        <!--<view-id value="/view/ocorrencias-por-bairro.xhtml"/>-->
+    <!--</url-mapping>-->
 
     <url-mapping id="not-found">
         <pattern value="/404" />
-        <view-id value="/WEB-INF/error/404.xhtml" />
+        <view-id value="/view/error/404.xhtml" />
     </url-mapping>
 
 </pretty-config>

@@ -31,7 +31,7 @@
 
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/errors/404.xhtml</location>
+        <location>/view/errors/404.xhtml</location>
     </error-page>
     <!-- FONT AWESOME DO BOOTSTRAP-->
     <context-param>

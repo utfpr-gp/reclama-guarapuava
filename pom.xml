@@ -117,30 +117,30 @@
             </plugin>
 
             <!-- SASS-->
-            <plugin>
-                <groupId>org.jasig.maven</groupId>
-                <artifactId>sass-maven-plugin</artifactId>
-                <version>1.1.1</version>
-                <executions>
-                    <execution>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>update-stylesheets</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <resources>
-                        <resource>
-                            <!-- Set source and destination dirs -->
-                            <source>
-                                <directory>${basedir}/src/main/webapp/resources/css</directory>
-                            </source>
-                            <destination>${basedir}/src/main/webapp/resources/css</destination>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.jasig.maven</groupId>-->
+                <!--<artifactId>sass-maven-plugin</artifactId>-->
+                <!--<version>1.1.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>prepare-package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>update-stylesheets</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<resources>-->
+                        <!--<resource>-->
+                            <!--&lt;!&ndash; Set source and destination dirs &ndash;&gt;-->
+                            <!--<source>-->
+                                <!--<directory>${basedir}/src/main/webapp/resources/css</directory>-->
+                            <!--</source>-->
+                            <!--<destination>${basedir}/src/main/webapp/resources/css</destination>-->
+                        <!--</resource>-->
+                    <!--</resources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
             <!-- PODER CHAMAR OS ARQUIVOS PELO LIBRARY NAME-->
             <plugin>
