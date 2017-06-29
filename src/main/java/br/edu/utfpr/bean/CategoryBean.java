@@ -66,6 +66,10 @@ public class CategoryBean {
         categoryService = new CategoryService();
     }
 
+    public void edit(Category category) {
+        this.category = category;
+    }
+
     public void delete(Category category) {
         boolean isSuccess = categoryService.delete(category);
         if (isSuccess) {
