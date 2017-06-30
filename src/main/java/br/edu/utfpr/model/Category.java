@@ -36,9 +36,8 @@ public class Category implements Serializable {
         super();
     }
     
-    public Category(Long id, String name) {
-        super();
-        this.id = id;
+    public Category(String name) {
+        super();        
         this.name = name;
     }
 

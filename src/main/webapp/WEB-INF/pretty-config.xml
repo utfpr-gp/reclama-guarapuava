@@ -18,10 +18,39 @@
         <pattern value="/bairros"/>
         <view-id value="/view/bairros/register.xhtml"/>
     </url-mapping>
+    
+    <url-mapping id="cadastro-ocorrencia">
+ 
+        <pattern value="/ocorrencias"/>
+        <view-id value="/view/ocorrencias/register.xhtml"/>
+ 
+    </url-mapping>
+ 
+    <url-mapping id="cadastro-admin-categoria">
+ 
+        <pattern value="/admin/categorias"/>
+        <view-id value="/view/admin/categorias-cadastro.xhtml"/>
+ 
+    </url-mapping>
+    
+    <url-mapping id="cadastro-admin-problemas">
+ 
+        <pattern value="/admin/problemas"/>
+        <view-id value="/view/admin/problemas-cadastro.xhtml"/>
+ 
+    </url-mapping>
+
+ 
+    <url-mapping id="cadastro-categoria">
+ 
+        <pattern value="/categorias"/>
+        <view-id value="/view/categorias/register.xhtml"/>
+ 
+    </url-mapping>
 
     <!--<url-mapping id="ocorrencias-bairros">-->
-        <!--<pattern value="/ocorrencias/bairros/#id/detalhes"/>-->
-        <!--<view-id value="/view/ocorrencias-por-bairro.xhtml"/>-->
+    <!--<pattern value="/ocorrencias/bairros/#id/detalhes"/>-->
+    <!--<view-id value="/view/ocorrencias-por-bairro.xhtml"/>-->
     <!--</url-mapping>-->
 
     <url-mapping id="not-found">
