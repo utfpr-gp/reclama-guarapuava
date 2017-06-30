@@ -28,17 +28,18 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String name;
     private String email;
+    private String login;
     private String password;
-    
+
     @OneToMany(cascade = CascadeType.REMOVE)
     private Set<Occurrence> occurrences;
-    
+
     @OneToMany(cascade = CascadeType.REMOVE)
     private Set<Comment> comments;
-    
+
     @OneToOne
     private City city;
 
@@ -46,11 +47,11 @@ public class User implements Serializable {
         super();
     }
 
-    public User(Long id, String name, String email, String password, City city) {
+    public User(String name, String email, String login, String password, City city) {
         super();
-        this.id = id;
         this.name = name;
         this.email = email;
+        this.login = login;
         this.password = password;
         this.city = city;
     }
@@ -70,8 +71,7 @@ public class User implements Serializable {
     public void setOccurrences(Set<Occurrence> occurrences) {
         this.occurrences = occurrences;
     }
-    
-    
+
     public String getName() {
         return name;
     }
@@ -86,6 +86,14 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {

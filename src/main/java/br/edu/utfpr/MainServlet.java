@@ -39,6 +39,7 @@ public class MainServlet extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("reclama_guarapuava");
         EntityManager em = emf.createEntityManager();
 
+
         em.getTransaction().begin();
 
         Category c1 = new Category("Acessibilidade - calçadas");
@@ -151,6 +152,8 @@ public class MainServlet extends HttpServlet {
         em.persist(p44);
 
         em.getTransaction().commit();
+        //em.getTransaction().begin();
+
 
         em.close();
         emf.close();

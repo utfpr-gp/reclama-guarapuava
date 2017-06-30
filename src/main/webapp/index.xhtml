@@ -6,31 +6,28 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pm="http://primefaces.org/mobile"
->
-    
+                >
+
     <ui:define name="content">
         <header id="home-page-header">
             <img id="image-header" src="resources/images/gp.jpg" />
-            
+
             <div id="box-action">
-                <a class="waves-effect waves-light btn blue darken-3">
-                    <i class="fa fa-facebook-square" aria-hidden="true" />
-                    Entrar com o Facebook
-                </a>
+                <h:button value="Acessar o Sistema" outcome="#{loginBean.redireciona()}" />
             </div>
-            
+
             <div id="box-text-header" class="center-align">
                 <p>Ajude a construir uma Guarapuava melhor</p>
                 <p>Entre e nos conte o problema que você identificou</p>
             </div>
         </header>
-        
+
         <article id="index-content" class="container">
             <header class="center-align">
                 <h1>Publique, veja, avalie, compartilhe e opine</h1>
                 <span>para juntos fazermos uma cidade melhor</span>
             </header>
-            
+
             <div class="row">
                 <div class="event-card grey lighten-1 col s12">
                     <div class="container card-body">
@@ -50,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="event-card light-green lighten-2 col s6">
                     <div class="container card-body">
@@ -83,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="event-card green darken-1 col s6">
                     <div class="container card-body">
@@ -100,17 +97,17 @@
                 </div>
                 <div class="event-card amber accent-3 col s6">
                     <a href="/ocorrencias/bairros">
-                    <div class="container card-body">
-                        <div class="row">
-                            <div class="col s2 card-icon">
-                                <i class="fa fa-th-large" aria-hidden="true" />
-                            </div>
-                            <div class="col s10 card-text center-align">
-                                <p>SINALIZAÇÃO</p>
-                                <p>12 OCORRÊNCIA</p>
+                        <div class="container card-body">
+                            <div class="row">
+                                <div class="col s2 card-icon">
+                                    <i class="fa fa-th-large" aria-hidden="true" />
+                                </div>
+                                <div class="col s10 card-text center-align">
+                                    <p>SINALIZAÇÃO</p>
+                                    <p>12 OCORRÊNCIA</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 </div>
             </div>
