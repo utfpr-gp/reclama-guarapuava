@@ -29,18 +29,6 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <error-page>
-        <error-code>404</error-code>
-        <location>/view/errors/404.xhtml</location>
-    </error-page>
-    <!-- FONT AWESOME DO BOOTSTRAP-->
-    <context-param>
-        <param-name>primefaces.FONT_AWESOME</param-name>
-        <param-value>true</param-value>
-    </context-param>
-
-
-
     <!-- TO LOGIN -->
     <login-config>
         <auth-method>FORM</auth-method>
@@ -80,4 +68,19 @@
             <role-name>USER</role-name>
         </auth-constraint>
     </security-constraint>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/view/errors/404.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/view/errors/403.xhtml</location>
+    </error-page>
+    <!-- FONT AWESOME DO BOOTSTRAP-->
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
 </web-app>

@@ -20,13 +20,18 @@
     </url-mapping>
 
     <!--<url-mapping id="ocorrencias-bairros">-->
-        <!--<pattern value="/ocorrencias/bairros/#id/detalhes"/>-->
-        <!--<view-id value="/view/ocorrencias-por-bairro.xhtml"/>-->
+    <!--<pattern value="/ocorrencias/bairros/#id/detalhes"/>-->
+    <!--<view-id value="/view/ocorrencias-por-bairro.xhtml"/>-->
     <!--</url-mapping>-->
 
     <url-mapping id="not-found">
         <pattern value="/404" />
         <view-id value="/view/error/404.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="ocorrencias-inicio">
+        <pattern value="/inicio" />
+        <view-id value="/view/ocorrencias/inicio.xhtml" />
     </url-mapping>
 
 </pretty-config>

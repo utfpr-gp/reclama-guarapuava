@@ -11,13 +11,23 @@
     <ui:define name="content">
         <p:messages></p:messages>
 
-        <form method="post" action="j_security_check">
-            Usuário<input type="text" name="j_username" />
-            <br/>
-            Senha<input type="password" name="j_password" />
-            <br/>
-            <input type="submit" value="Login" />
-        </form>
+        <h:form id="form">
+            <h:panelGrid columns="3">
+                <p:outputLabel value="Usuário" for="inputUsuario" />
+                <p:inputText id="inputUsuario" required="true"
+                             value="#{loginBean.usuario}" />
+                <p:message for="inputUsuario" />
+
+                <p:outputLabel value="Senha" for="inputSenha" />
+                <p:password id="inputSenha" required="true"
+                            value="#{loginBean.senha}" />
+                <p:message for="inputSenha" />
+            </h:panelGrid>
+
+            <p:commandButton id="btEntrar" value="Entrar" ajax="false"
+                             action="#{loginBean.onClickLogar()}"
+                             icon="ui-icon-check" />
+        </h:form>
 
     </ui:define>
 

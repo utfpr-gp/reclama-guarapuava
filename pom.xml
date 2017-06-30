@@ -12,14 +12,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
     <repositories>
-	<repository>  
-            <id>prime-repo</id>  
-            <name>PrimeFaces Maven Repository</name>  
-            <url>http://repository.primefaces.org</url>  
-            <layout>default</layout>  
-        </repository>  
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -79,7 +79,7 @@
             <scope>compile</scope>
         </dependency>
 
-         <!--https://mvnrepository.com/artifact/org.primefaces.themes/south-street--> 
+        <!--https://mvnrepository.com/artifact/org.primefaces.themes/south-street-->
         <dependency>
             <groupId>org.primefaces.themes</groupId>
             <artifactId>south-street</artifactId>
@@ -93,7 +93,12 @@
             <artifactId>prettyfaces-jsf2</artifactId>
             <version>3.3.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
@@ -118,28 +123,28 @@
 
             <!-- SASS-->
             <!--<plugin>-->
-                <!--<groupId>org.jasig.maven</groupId>-->
-                <!--<artifactId>sass-maven-plugin</artifactId>-->
-                <!--<version>1.1.1</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>prepare-package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>update-stylesheets</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--<resources>-->
-                        <!--<resource>-->
-                            <!--&lt;!&ndash; Set source and destination dirs &ndash;&gt;-->
-                            <!--<source>-->
-                                <!--<directory>${basedir}/src/main/webapp/resources/css</directory>-->
-                            <!--</source>-->
-                            <!--<destination>${basedir}/src/main/webapp/resources/css</destination>-->
-                        <!--</resource>-->
-                    <!--</resources>-->
-                <!--</configuration>-->
+            <!--<groupId>org.jasig.maven</groupId>-->
+            <!--<artifactId>sass-maven-plugin</artifactId>-->
+            <!--<version>1.1.1</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>prepare-package</phase>-->
+            <!--<goals>-->
+            <!--<goal>update-stylesheets</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--<configuration>-->
+            <!--<resources>-->
+            <!--<resource>-->
+            <!--&lt;!&ndash; Set source and destination dirs &ndash;&gt;-->
+            <!--<source>-->
+            <!--<directory>${basedir}/src/main/webapp/resources/css</directory>-->
+            <!--</source>-->
+            <!--<destination>${basedir}/src/main/webapp/resources/css</destination>-->
+            <!--</resource>-->
+            <!--</resources>-->
+            <!--</configuration>-->
             <!--</plugin>-->
 
             <!-- PODER CHAMAR OS ARQUIVOS PELO LIBRARY NAME-->
