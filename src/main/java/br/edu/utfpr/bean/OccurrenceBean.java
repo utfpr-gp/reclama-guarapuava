@@ -3,7 +3,6 @@ package br.edu.utfpr.bean;
 import br.edu.utfpr.model.Category;
 import br.edu.utfpr.model.Neighborhood;
 import br.edu.utfpr.model.Occurrence;
-import br.edu.utfpr.model.service.CategoryService;
 import br.edu.utfpr.model.service.NeighborhoodService;
 import br.edu.utfpr.model.service.OccurrenceService;
 import br.edu.utfpr.util.MessageUtil;
@@ -25,7 +24,24 @@ public class OccurrenceBean {
     private Occurrence occurrence;
     private List<Occurrence> occurrenceList;
     private OccurrenceService occurrenceService;
-    private Long categoryId;
+
+    public Long getNeigIdSelected() {
+        return neigIdSelected;
+    }
+
+    public void setNeigIdSelected(Long neigIdSelected) {
+        this.neigIdSelected = neigIdSelected;
+    }
+    private Long neigIdSelected;
+
+    public Long getCatIdSelected() {
+        return catIdSelected;
+    }
+
+    public void setCatIdSelected(Long catIdSelected) {
+        this.catIdSelected = catIdSelected;
+    }
+    private Long catIdSelected;
 
     public OccurrenceBean() {
     }
@@ -36,11 +52,6 @@ public class OccurrenceBean {
         occurrenceList = new ArrayList<>();
         occurrenceService = new OccurrenceService();
     }
-
-    public void edit(Occurrence occurrence){
-        this.occurrence = occurrence;
-    }
-
 
     public List<Occurrence> findAll() {
         return occurrenceList = occurrenceService.findAll();
@@ -82,15 +93,23 @@ public class OccurrenceBean {
     }
 
     public void persist() {
+        System.out.println("ID ABAIXO");
 
-        if (occurrence.getId() == null) {
-            CategoryService categoryService = new CategoryService();
-            Category category = categoryService.getById(categoryId);
-            occurrence.setCategory(category);
+        System.out.println(catIdSelected);
 
+        Neighborhood n = new Neighborhood();
+        Category c = new Category();
+        if (catIdSelected != null && neigIdSelected != null) {
+            c.setId(occurrenceService.getById(catIdSelected).getId());
+            n.setId(occurrenceService.getById(neigIdSelected).getId());
+            occurrence.setNeighborhood(n);
+            occurrence.setCategory(c);
+        }
+        if (catIdSelected == null || neigIdSelected == null) {
+            MessageUtil.showMessage("Falha ao persistir um ou mais campos estao em branco", "", FacesMessage.SEVERITY_ERROR);
+        } else if (occurrence.getId() == null) {
             if (occurrenceService.save(occurrence)) {
                 this.occurrenceList.add(occurrence);
-                setCategoryId(categoryId);
                 MessageUtil.showMessage("Persistido com sucesso", "", FacesMessage.SEVERITY_INFO);
             } else {
                 MessageUtil.showMessage("Falha ao persistir", "", FacesMessage.SEVERITY_ERROR);
@@ -106,11 +125,4 @@ public class OccurrenceBean {
         this.occurrence = new Occurrence();
     }
 
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
 }

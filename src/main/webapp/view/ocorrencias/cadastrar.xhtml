@@ -18,7 +18,7 @@
             <h:panelGrid id = "panel" columns = "1" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 500px; padding-left: 400px">
 
                 <p:outputLabel for="cat" value="Categoria " style="width: 500px" />
-                <p:selectOneMenu id="cat" value="#{categoryBean.categoryList}" style="width: 500px" >
+                <p:selectOneMenu id="cat"  value="#{occurrenceBean.catIdSelected}" style="width: 500px" >
                     <f:selectItem itemLabel="Categoria" itemValue="" />
                     <f:selectItems var="occ"  value="#{categoryBean.findAll()}"  itemValue="#{occ.id}" itemLabel="#{occ.name}" />
                 </p:selectOneMenu>
@@ -26,9 +26,7 @@
 
             <!--  depois que os problemas ja estiverem sido cadastrados devidamente apenas descomentar aqui e trocar occurrenceBean pelo respecitivo bean
                fazer ajustes no itemLabel tambem -->
-
-            <h:panelGrid id = "panel1" columns = "1" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 500px; padding-left: 400px">
-
+            <!--
             <p:outputLabel for="prb" value="Informe o problema " style="width: 500px" />
             <p:selectOneMenu id="prb" value="#{occurrenceBean.occurrenceList}"  style="width: 500px" >
                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -36,14 +34,14 @@
             </p:selectOneMenu>
 
         </h:panelGrid>
-
+            -->
             <h:panelGrid id = "panel2" columns = "2" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 600px; padding-left: 400px">
                 <p:outputLabel for="end" value="Informe o endereco da ocorrência" style="width: 300px" />
 
                 <p:outputLabel  value="Bairro " style="width: 100px" />
                 <p:inputText id="end" value="#{occurrenceBean.occurrence.address}" required="true" style="width: 300px"  />
 
-                <p:selectOneMenu  style="width: 200px" id="neighborhood-occurrence">
+                <p:selectOneMenu  style="width: 200px" id="neighborhood-occurrence" value="#{occurrenceBean.neigIdSelected}" >
                     <f:selectItem itemValue="" itemLabel="Selecione um Bairro"/>
                     <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
                 </p:selectOneMenu>
@@ -60,6 +58,10 @@
                 <p:inputText id="foto" required="true" style="width: 300px"  />
                 <p:commandButton value="Publicar" id="nonAjax" actionListener="#{buttonView.buttonAction}" ajax="false" />
                 -->
+
+
+
+
                 <p:commandButton value="Publicar" id="nonAjax" actionListener="#{occurrenceBean.persist()}" ajax="false" />
             </h:panelGrid>
 

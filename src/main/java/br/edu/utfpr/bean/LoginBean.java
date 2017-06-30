@@ -46,7 +46,7 @@ public class LoginBean {
 
     public String redireciona() {
         System.out.println("hsdfuhsduifhsduifhsdufhisdfusdhfisduf************************");
-        return "view/ocorrencias/inicio";
+        return "view/ocorrencias/inicio.xhtml";
     }
 
     public String onClickLogar() {
