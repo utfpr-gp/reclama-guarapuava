@@ -24,7 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 public class MainServlet extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -32,10 +33,10 @@ public class MainServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("reclama-guarapuava");
-		EntityManager em = emf.createEntityManager();
-		//em.getTransaction().begin();
-                
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("reclama_guarapuava");
+        EntityManager em = emf.createEntityManager();
+        //em.getTransaction().begin();
+
         em.close();
         emf.close();
     }
