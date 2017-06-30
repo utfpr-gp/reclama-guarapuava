@@ -44,8 +44,8 @@ public class NeighborhoodBean {
         this.neighborhood = new Neighborhood();
     }
 
-    public void edit(Neighborhood artist){
-        this.neighborhood = artist;
+    public void edit(Neighborhood neighborhood){
+        this.neighborhood = neighborhood;
     }
 
     public void delete(Neighborhood neighborhood){

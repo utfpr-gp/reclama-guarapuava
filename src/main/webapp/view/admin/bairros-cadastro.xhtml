@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition template="/WEB-INF/templates/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -13,34 +13,34 @@
 
         <h:form>
             <h2 style="text-align: center">Área administrativa!</h2>
-            <p style="text-align: center">Cadastro de categorias</p>
+            <p style="text-align: center">Cadastro de Bairros</p>
 
             <h:panelGrid id = "panel2" columns = "1" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 600px; padding-left: 400px">
                 <p:outputLabel for="end" value="Informe o nome da categoria a ser cadastrada:" style="width: 300px" />
-                <p:inputText id="end" value="#{categoryBean.category.name}" required="true" style="width: 300px"  />
-                <p:commandButton value="Gravar" id="nonAjax" actionListener="#{categoryBean.persist()}" ajax="false" />
-            </h:panelGrid>           
+                <p:inputText id="end" value="#{neighborhoodBean.neighborhood.name}" required="true" style="width: 300px"  />
+                <p:commandButton value="Gravar" id="nonAjax" actionListener="#{neighborhoodBean.persist()}" ajax="false" />
+            </h:panelGrid>
 
             <div class="row">
                 <div class="col s6">
-                    <p:dataTable var="category" value="#{categoryBean.categoryList}" paginator="true" rows="5">
+                    <p:dataTable var="neighborhood" value="#{neighborhoodBean.neighborhoodList}" paginator="true" rows="5">
                         <p:column headerText="Id">
-                            <h:outputText value="#{category.id}" />
+                            <h:outputText value="#{neighborhood.id}" />
                         </p:column>
 
                         <p:column headerText="Nome">
-                            <h:outputText value="#{category.name}" />
+                            <h:outputText value="#{neighborhood.name}" />
                         </p:column>
 
                         <p:column headerText="">
                             <div class="row center">
                                 <div class="col s12 ">
-                                    <h:commandLink action="#{categoryBean.edit(category)}" class="waves-effect waves-light btn blue darken-3 white-text">
+                                    <h:commandLink action="#{categoryBean.edit(neighborhood)}" class="waves-effect waves-light btn blue darken-3 white-text">
                                         <i class="material-icons">mode_edit</i>
-                                    </h:commandLink>                                    
+                                    </h:commandLink>
                                 </div>
-                                <div class="col s12">                                    
-                                    <h:commandLink action="#{categoryBean.delete(category)}" class="waves-effect waves-light btn red darken-3 white-text">
+                                <div class="col s12">
+                                    <h:commandLink action="#{categoryBean.delete(neighborhood)}" class="waves-effect waves-light btn red darken-3 white-text">
                                         <i class="material-icons">delete_forever</i>
                                     </h:commandLink>
                                 </div>
