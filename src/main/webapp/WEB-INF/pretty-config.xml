@@ -14,19 +14,40 @@
         <view-id value="/view/bairros/ocorrencias-por-bairro.xhtml"/>
     </url-mapping>
 
-    <url-mapping id="cadastro-bairro">
-        <pattern value="/bairros"/>
-        <view-id value="/view/bairros/register.xhtml"/>
+    <url-mapping id="cadastro-ocorrencia">
+        <pattern value="/ocorrencias/novo"/>
+        <view-id value="/view/ocorrencias/cadastrar.xhtml"/>
     </url-mapping>
 
-    <!--<url-mapping id="ocorrencias-bairros">-->
-        <!--<pattern value="/ocorrencias/bairros/#id/detalhes"/>-->
-        <!--<view-id value="/view/ocorrencias-por-bairro.xhtml"/>-->
-    <!--</url-mapping>-->
+    <url-mapping id="cadastro-ocorrencia">
+        <pattern value="/ocorrencias"/>
+        <view-id value="/view/ocorrencias/inicio.xhtml"/>
+    </url-mapping>
 
+    <url-mapping id="cadastro-categoria">
+        <pattern value="/categorias"/>
+        <view-id value="/view/categorias/register.xhtml"/>
+    </url-mapping>
+
+    <!--=========== ROTAS ADMIN =============-->
+    <url-mapping id="admin-ocorrencia">
+        <pattern value="/admin/ocorrencias/novo"/>
+        <view-id value="/view/admin/problemas-cadastro.xhtml"/>
+    </url-mapping>
+    <url-mapping id="admin-categoria">
+        <pattern value="/admin/categorias/novo"/>
+        <view-id value="/view/admin/categorias-cadastro.xhtml"/>
+    </url-mapping>
+    <url-mapping id="admin-bairro">
+        <pattern value="/admin/bairros/novo"/>
+        <view-id value="/view/admin/bairros-cadastro.xhtml"/>
+    </url-mapping>
+    <!--=========== ROTAS ADMIN =============-->
+
+    <!--=========== ROTAS DE ERRO =============-->
     <url-mapping id="not-found">
         <pattern value="/404" />
         <view-id value="/view/error/404.xhtml" />
     </url-mapping>
-
+    <!--=========== ROTAS DE ERRO =============-->
 </pretty-config>
