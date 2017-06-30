@@ -36,9 +36,8 @@ public class Problem implements Serializable {
         super();
     }
     
-    public Problem(Long id, String name) {
+    public Problem(String name) {
         super();
-        this.id = id;
         this.name = name;
     }
 
