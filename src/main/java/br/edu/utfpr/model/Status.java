@@ -36,9 +36,8 @@ public class Status implements Serializable {
         super();
     }
     
-    public Status(Long id, String name) {
+    public Status(String name) {
         super();
-        this.id = id;
         this.name = name;
     }
 

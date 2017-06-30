@@ -39,9 +39,8 @@ public class Comment implements Serializable {
         super();
     }
     
-    public Comment(Long id, User user, String description, Occurrence occurrence) {
+    public Comment(User user, String description, Occurrence occurrence) {
         super();
-        this.id = id;
         this.user = user;
         this.description = description;
         this.occurrence = occurrence;

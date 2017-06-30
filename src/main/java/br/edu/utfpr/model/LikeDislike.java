@@ -38,9 +38,8 @@ public class LikeDislike implements Serializable {
         super();
     }
 
-    public LikeDislike(Long id, Occurrence occurrence, User user, Character like_dislike) {
+    public LikeDislike(Occurrence occurrence, User user, Character like_dislike) {
         super();
-        this.id = id;
         this.occurrence = occurrence;
         this.user = user;
         this.like_dislike = like_dislike;

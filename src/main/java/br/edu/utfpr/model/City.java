@@ -34,9 +34,8 @@ public class City implements Serializable {
         super();
     }
     
-    public City(Long id, String name, State state) {
+    public City(String name, State state) {
         super();
-        this.id = id;
         this.name = name;
         this.state = state;
     }

@@ -37,9 +37,8 @@ public class Neighborhood implements Serializable {
         super();
     }
 
-    public Neighborhood(Long id, String name) {
+    public Neighborhood(String name) {
         super();
-        this.id = id;
         this.name = name;
     }
 

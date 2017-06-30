@@ -65,9 +65,8 @@ public class Occurrence implements Serializable {
         super();
     }
 
-    public Occurrence(Long id, Category category, Problem problem, String address, Neighborhood neighborhood, String description, String photo, Status status, Long views, LikeDislike likes_dislikes, User user) {
+    public Occurrence(Category category, Problem problem, String address, Neighborhood neighborhood, String description, String photo, Status status, Long views, LikeDislike likes_dislikes, User user) {
         super();
-        this.id = id;
         this.category = category;
         this.problem = problem;
         this.address = address;

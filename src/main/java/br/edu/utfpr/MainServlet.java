@@ -6,7 +6,9 @@
 package br.edu.utfpr;
 
 import br.edu.utfpr.model.Category;
+import br.edu.utfpr.model.Neighborhood;
 import br.edu.utfpr.model.Problem;
+import br.edu.utfpr.model.Status;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -150,6 +152,56 @@ public class MainServlet extends HttpServlet {
         em.persist(p43);
         Problem p44 = new Problem("Praça suja");
         em.persist(p44);
+        
+        //Cadastro Inicial de Bairros
+        Neighborhood n1 = new Neighborhood("Alto Cascavel");
+        em.persist(n1);
+        Neighborhood n2 = new Neighborhood("Alto da XV");
+        em.persist(n2);
+        Neighborhood n3 = new Neighborhood("Batel");
+        em.persist(n3);
+        Neighborhood n4 = new Neighborhood("Bonsucesso");
+        em.persist(n4);
+        Neighborhood n5 = new Neighborhood("Boqueirão");
+        em.persist(n5);
+        Neighborhood n6 = new Neighborhood("Cascavel");
+        em.persist(n6);
+        Neighborhood n7 = new Neighborhood("Conradinho");
+        em.persist(n7);
+        Neighborhood n8 = new Neighborhood("Dos Estados");
+        em.persist(n8);
+        Neighborhood n9 = new Neighborhood("Imóvel Morro Alto");
+        em.persist(n9);
+        Neighborhood n10 = new Neighborhood("Industrial");
+        em.persist(n10);
+        Neighborhood n11 = new Neighborhood("Jardim das Américas");
+        em.persist(n11);
+        Neighborhood n12 = new Neighborhood("Morro Alto");
+        em.persist(n12);
+        Neighborhood n13 = new Neighborhood("Primavera");
+        em.persist(n13);
+        Neighborhood n14 = new Neighborhood("Santa Cruz");
+        em.persist(n14);
+        Neighborhood n15 = new Neighborhood("Santana");
+        em.persist(n15);
+        Neighborhood n16 = new Neighborhood("São Cristovão");
+        em.persist(n16);
+        Neighborhood n17 = new Neighborhood("Trianon");
+        em.persist(n17);
+        Neighborhood n18 = new Neighborhood("Vila Carli");
+        em.persist(n18);
+        Neighborhood n19 = new Neighborhood("Vila Bela");
+        em.persist(n19);
+        
+        //Cadastro Inicial de Status
+        Status st1 = new Status("Em aberto");
+        em.persist(st1);
+        Status st2 = new Status("Aguardando resolução");
+        em.persist(st2);
+        Status st3 = new Status("Não resolvido");
+        em.persist(st3);
+        Status st4 = new Status("Resolvido");
+        em.persist(st4);
 
         em.getTransaction().commit();
         //em.getTransaction().begin();

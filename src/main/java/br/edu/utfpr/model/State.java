@@ -31,9 +31,8 @@ public class State implements Serializable {
         super();
     }
     
-    public State(Long id, String name) {
+    public State(String name) {
         super();
-        this.id = id;
         this.name = name;
     }
     
