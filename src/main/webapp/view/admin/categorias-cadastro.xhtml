@@ -30,7 +30,7 @@
 
                     <div class="row">                     
                         <div class="col s12">
-                            <p:dataTable var="category" value="#{categoryBean.categoryList}" paginator="true" rows="5">
+                            <p:dataTable var="category" value="#{categoryBean.findAll()}" paginator="true" rows="5">
 
                                 <p:column headerText="Id">
                                     <h:outputText value="#{category.id}" />

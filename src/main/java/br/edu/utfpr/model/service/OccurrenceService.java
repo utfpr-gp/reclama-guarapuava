@@ -35,5 +35,32 @@ public class OccurrenceService extends AbstractService<Long, Occurrence>{
         
         return occurrences;
     }
-    
+
+    public List<Occurrence> getByNeighborhood(Long id){
+        List<Occurrence> occurrences = null;
+        try {
+            JPAUtil.beginTransaction();
+            occurrences = ((OccurrenceDAO) dao).occurrenceNeighboorhod(id);
+            JPAUtil.commit();
+        }catch (Exception e){
+            JPAUtil.rollBack();
+        }finally {
+            JPAUtil.closeEntityManager();
+        }
+        return occurrences;
+    }
+
+    public Long getTotalByCategory(Long id){
+        Long total = 0L;
+        try {
+            JPAUtil.beginTransaction();
+            total = Long.valueOf(((OccurrenceDAO) dao).occurrenceTotalCategory(id));
+            JPAUtil.commit();
+        }catch (Exception e){
+            JPAUtil.rollBack();
+        }finally {
+            JPAUtil.closeEntityManager();
+        }
+        return total;
+    }
 }
