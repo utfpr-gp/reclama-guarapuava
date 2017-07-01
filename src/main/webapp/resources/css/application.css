@@ -139,6 +139,10 @@ h6 {
   text-transform: uppercase !important;
 }
 
+.padding{
+  padding: 2% 10%!important;
+}
+
 /**********************************************
 ************ Responsive styles ****************
 ***********************************************/
