@@ -3,7 +3,7 @@
 <ui:composition xmlns = "http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
-                template="/WEB-INF/templates/templatenomt.xhtml"
+                template="/WEB-INF/templates/template.xhtml"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 >
@@ -49,18 +49,8 @@
             </h:panelGrid>
 
             <h:panelGrid id = "panel3" columns = "1" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 500px; padding-left: 400px">
-
-
                 <p:outputLabel for="descprob" value="Descreva o problema " style="width: 600px" />
                 <p:inputTextarea id ="descprob" rows="7" cols="60" value="#{occurrenceBean.occurrence.description}" queryDelay="750" minQueryLength="4" />
-                <!-- falta adicionar foto da ocorrencia...
-                <p:outputLabel for="foto" value="Envie uma foto do problema " style="width: 600px" />
-                <p:inputText id="foto" required="true" style="width: 300px"  />
-                <p:commandButton value="Publicar" id="nonAjax" actionListener="#{buttonView.buttonAction}" ajax="false" />
-                -->
-
-
-
 
                 <p:commandButton value="Publicar" id="nonAjax" actionListener="#{occurrenceBean.persist()}" ajax="false" />
             </h:panelGrid>

@@ -86,7 +86,17 @@ public class AbstractService<PK, T> {
     }
 
     public List<T> findAll() {
-        return dao.findAll();
-    }
+        List<T> list = null;
+        try {
+            JPAUtil.beginTransaction();
+            list = dao.findAll();
+            JPAUtil.commit();
+        } catch (Exception e) {
+            JPAUtil.rollBack();
+        } finally {
+            JPAUtil.closeEntityManager();
+        }
 
+        return list;
+    }
 }

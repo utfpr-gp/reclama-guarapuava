@@ -13,6 +13,7 @@ import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.servlet.http.Part;
 
 /**
  * Created by sartori on 27/06/17.
@@ -96,7 +97,7 @@ public class OccurrenceBean {
         System.out.println("ID ABAIXO");
 
         System.out.println(catIdSelected);
-
+        
         Neighborhood n = new Neighborhood();
         Category c = new Category();
         if (catIdSelected != null && neigIdSelected != null) {
