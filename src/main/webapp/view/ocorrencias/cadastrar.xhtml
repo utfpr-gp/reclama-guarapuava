@@ -19,7 +19,7 @@
                     
                     <div class="row">
                         <div class="input-field col s12">
-                            <h:selectOneMenu id="category" value="#{occurrenceBean.occurrence.category}">
+                            <h:selectOneMenu id="category" value="#{occurrenceBean.catIdSelected}">
                                 <f:selectItem itemValue="" itemLabel="Selecione uma categoria"></f:selectItem>
                                 <f:selectItems var="category" value="#{categoryBean.findAll()}" itemValue="#{category.id}" itemLabel="#{category.name}"/>
                             </h:selectOneMenu>
@@ -30,7 +30,7 @@
                     
                     <div class="row">
                         <div class="input-field col s12">
-                            <h:selectOneMenu id="problem" value="#{occurrenceBean.occurrence.problem}">
+                            <h:selectOneMenu id="problem" value="#{occurrenceBean.problemId}">
                                 <f:selectItem itemValue="" itemLabel="Selecione um problema"></f:selectItem>
                                 <f:selectItems var="problem" value="#{problemBean.findAll()}" itemValue="#{problem.id}" itemLabel="#{problem.name}"/>
                             </h:selectOneMenu>
@@ -46,7 +46,7 @@
                         </div>
                         
                         <div class="input-field col s6">
-                            <h:selectOneMenu id="neighborhood" value="#{occurrenceBean.occurrence.neighborhood}">
+                            <h:selectOneMenu id="neighborhood" value="#{occurrenceBean.neigIdSelected}">
                                 <f:selectItem itemValue="" itemLabel="Selecione um Bairro"></f:selectItem>
                                 <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
                             </h:selectOneMenu>

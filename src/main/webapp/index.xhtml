@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-
+            <ui:repeat value="#{occurrenceBean.findAll()}" var="occurrence">
             <div class="row">
                 <div class="event-card green darken-1 col s6">
                     <div class="container card-body">
@@ -88,12 +88,14 @@
                                 <i class="fa fa-th-large" aria-hidden="true" />
                             </div>
                             <div class="col s10 card-text center-align">
-                                <p>MEIO AMBIENTE</p>
-                                <p>12 OCORRÊNCIAA</p>
+                                <p>#{occurrence.description}</p>
+                                <p>teste</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            </ui:repeat>
                 <div class="event-card amber accent-3 col s6">
                     <a href="/ocorrencias/bairros">
                         <div class="container card-body">
@@ -109,7 +111,6 @@
                         </div>
                     </a>
                 </div>
-            </div>
         </article>
     </ui:define>
 </ui:composition>

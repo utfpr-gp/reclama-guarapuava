@@ -3,8 +3,11 @@ package br.edu.utfpr.bean;
 import br.edu.utfpr.model.Category;
 import br.edu.utfpr.model.Neighborhood;
 import br.edu.utfpr.model.Occurrence;
+import br.edu.utfpr.model.Problem;
+import br.edu.utfpr.model.service.CategoryService;
 import br.edu.utfpr.model.service.NeighborhoodService;
 import br.edu.utfpr.model.service.OccurrenceService;
+import br.edu.utfpr.model.service.ProblemService;
 import br.edu.utfpr.util.MessageUtil;
 
 import javax.annotation.PostConstruct;
@@ -25,6 +28,15 @@ public class OccurrenceBean {
     private Occurrence occurrence;
     private List<Occurrence> occurrenceList;
     private OccurrenceService occurrenceService;
+    private Long problemId;
+
+    public Long getProblemId() {
+        return problemId;
+    }
+
+    public void setProblemId(Long problemId) {
+        this.problemId = problemId;
+    }
 
     public Long getNeigIdSelected() {
         return neigIdSelected;
@@ -100,13 +112,20 @@ public class OccurrenceBean {
         
         Neighborhood n = new Neighborhood();
         Category c = new Category();
-        if (catIdSelected != null && neigIdSelected != null) {
-            c.setId(occurrenceService.getById(catIdSelected).getId());
-            n.setId(occurrenceService.getById(neigIdSelected).getId());
-            occurrence.setNeighborhood(n);
-            occurrence.setCategory(c);
+        if (catIdSelected != null && neigIdSelected != null && problemId != null) {
+            NeighborhoodService neighborhoodService = new NeighborhoodService();
+            Neighborhood neighborhood = neighborhoodService.getById(getNeigIdSelected());
+            occurrence.setNeighborhood(neighborhood);
+
+            CategoryService categoryService = new CategoryService();
+            Category category = categoryService.getById(getCatIdSelected());
+            occurrence.setCategory(category);
+
+            ProblemService problemService = new ProblemService();
+            Problem problem = problemService.getById(getProblemId());
+            occurrence.setProblem(problem);
         }
-        if (catIdSelected == null || neigIdSelected == null) {
+        if (catIdSelected == null || neigIdSelected == null || problemId == null) {
             MessageUtil.showMessage("Falha ao persistir um ou mais campos estao em branco", "", FacesMessage.SEVERITY_ERROR);
         } else if (occurrence.getId() == null) {
             if (occurrenceService.save(occurrence)) {
