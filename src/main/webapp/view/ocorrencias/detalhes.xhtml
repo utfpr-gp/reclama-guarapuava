@@ -11,17 +11,20 @@
         <p:messages></p:messages>
 
         <h:form>
-
-            <h:panelGrid id = "panel2" columns = "1" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 600px; padding-left: 400px">
-                <p:outputLabel for="end" value="Digite um comentario sobre a ocorrencia:" style="width: 300px" />
-                <p:inputText id="end" value="#{commentBean.comment.description}" required="true" style="width: 300px"  />
-                <p:commandButton value="Comentar" id="nonAjax" actionListener="#{commentBean.persist()}" ajax="false" />
-            </h:panelGrid>
+            <div class="row">
+                <div class="input-field col s12">
+                    <h:inputTextarea id="comment" value="#{commentBean.comment.description}"></h:inputTextarea>
+                    <h:outputLabel for="comment">Digite um comentario sobre a ocorrencia</h:outputLabel>
+                </div>
+            </div>
+            
+            <div class="row">
+                <h:commandButton action="#{commentBean.persist()}" class="waves-effect waves-light btn" value="Registrar comentario"></h:commandButton>
+            </div>
 
             <div class="row">
                 <div class="col s6">
                     <p:dataTable var="com" value="#{commentBean.findAll()}" paginator="false" >
-
 
                         <p:column headerText="Nome">
                             <h:outputText value="#{request.remoteUser}" /> <!-- mudar se existir cadastro de usuario -->

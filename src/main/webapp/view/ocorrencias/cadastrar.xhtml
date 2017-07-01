@@ -1,62 +1,87 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns = "http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
-                template="/WEB-INF/templates/template.xhtml"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
                 >
 
     <ui:define name="content">
         <p:messages></p:messages>
-
-        <h:form>
-            <h2 style="text-align: center">Nos conte o problema</h2>
-            <p style="text-align: center">Quanto mais informações mais rapido o problema será resolvido</p>
-
-            <h:panelGrid id = "panel" columns = "1" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 500px; padding-left: 400px">
-
-                <p:outputLabel for="cat" value="Categoria " style="width: 500px" />
-                <p:selectOneMenu id="cat"  value="#{occurrenceBean.catIdSelected}" style="width: 500px" >
-                    <f:selectItem itemLabel="Categoria" itemValue="" />
-                    <f:selectItems var="occ"  value="#{categoryBean.findAll()}"  itemValue="#{occ.id}" itemLabel="#{occ.name}" />
-                </p:selectOneMenu>
-            </h:panelGrid>
-
-            <!--  depois que os problemas ja estiverem sido cadastrados devidamente apenas descomentar aqui e trocar occurrenceBean pelo respecitivo bean
-               fazer ajustes no itemLabel tambem -->
-            <!--
-            <p:outputLabel for="prb" value="Informe o problema " style="width: 500px" />
-            <p:selectOneMenu id="prb" value="#{occurrenceBean.occurrenceList}"  style="width: 500px" >
-                <f:selectItem itemLabel="Select One" itemValue="" />
-                <f:selectItems value="#{occurrenceBean.findAll()}" itemValue="#{occ.id}" itemLabel="#{occ.name}" />
-            </p:selectOneMenu>
-
-        </h:panelGrid>
-            -->
-            <h:panelGrid id = "panel2" columns = "2" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 600px; padding-left: 400px">
-                <p:outputLabel for="end" value="Informe o endereco da ocorrência" style="width: 300px" />
-
-                <p:outputLabel  value="Bairro " style="width: 100px" />
-                <p:inputText id="end" value="#{occurrenceBean.occurrence.address}" required="true" style="width: 300px"  />
-
-                <p:selectOneMenu  style="width: 200px" id="neighborhood-occurrence" value="#{occurrenceBean.neigIdSelected}" >
-                    <f:selectItem itemValue="" itemLabel="Selecione um Bairro"/>
-                    <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
-                </p:selectOneMenu>
-
-            </h:panelGrid>
-
-            <h:panelGrid id = "panel3" columns = "1" border = "0" columnClasses="col1, col2"  cellpadding = "25" cellspacing = "0"  style="width: 500px; padding-left: 400px">
-                <p:outputLabel for="descprob" value="Descreva o problema " style="width: 600px" />
-                <p:inputTextarea id ="descprob" rows="7" cols="60" value="#{occurrenceBean.occurrence.description}" queryDelay="750" minQueryLength="4" />
-
-                <p:commandButton value="Publicar" id="nonAjax" actionListener="#{occurrenceBean.persist()}" ajax="false" />
-            </h:panelGrid>
-
-        </h:form>
-
+        
+        <div class="container">
+            <div class="row">
+                
+                <h:form class="col s12">
+                    <h2 style="text-align: center">Nos conte o problema</h2>
+                    <p style="text-align: center">Quanto mais informações mais rapido o problema será resolvido</p>
+                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <h:selectOneMenu id="category" value="#{occurrenceBean.occurrence.category}">
+                                <f:selectItem itemValue="" itemLabel="Selecione uma categoria"></f:selectItem>
+                                <f:selectItems var="category" value="#{categoryBean.findAll()}" itemValue="#{category.id}" itemLabel="#{category.name}"/>
+                            </h:selectOneMenu>
+                            
+                            <h:outputLabel for="category">Categoria</h:outputLabel>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <h:selectOneMenu id="problem" value="#{occurrenceBean.occurrence.problem}">
+                                <f:selectItem itemValue="" itemLabel="Selecione um problema"></f:selectItem>
+                                <f:selectItems var="problem" value="#{problemBean.findAll()}" itemValue="#{problem.id}" itemLabel="#{problem.name}"/>
+                            </h:selectOneMenu>
+                            
+                            <h:outputLabel for="problem">Informe o problema</h:outputLabel>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <h:inputText id="address" value="#{occurrenceBean.occurrence.address}"></h:inputText>
+                            <h:outputLabel for="address">Informe o endereço da ocorrência</h:outputLabel>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                            <h:selectOneMenu id="neighborhood" value="#{occurrenceBean.occurrence.neighborhood}">
+                                <f:selectItem itemValue="" itemLabel="Selecione um Bairro"></f:selectItem>
+                                <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
+                            </h:selectOneMenu>
+                            
+                            <h:outputLabel for="neighborhood">Bairro</h:outputLabel>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <h:inputTextarea id="description" class="materialize-textarea" value="#{occurrenceBean.occurrence.description}"></h:inputTextarea>
+                            <h:outputLabel for="description">Descreva o problema</h:outputLabel>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Envie uma foto da ocorrência</span>
+                                <input type="file"/>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input id="occurrence-img" class="file-path validate" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="center">
+                        <h:commandButton action="#{occurrenceBean.persist()}" value="Publicar" class="waves-effect waves-light btn"></h:commandButton>
+                    </div>
+                    
+                </h:form><!--h:form -->
+            </div><!-- div.row -->
+        </div><!--div.container-->
+        
     </ui:define>
 
 </ui:composition>

@@ -34,11 +34,6 @@
 
     </url-mapping>
 
-    <!--<url-mapping id="ocorrencias-bairros">-->
-    <!--<pattern value="/ocorrencias/bairros/#id/detalhes"/>-->
-    <!--<view-id value="/view/ocorrencias-por-bairro.xhtml"/>-->
-    <!--</url-mapping>-->
-
     <url-mapping id="cadastro-ocorrencia">
         <pattern value="/ocorrencias"/>
         <view-id value="/view/ocorrencias/inicio.xhtml"/>

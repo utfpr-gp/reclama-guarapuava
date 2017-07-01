@@ -8,9 +8,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:pm="http://primefaces.org/mobile"
 >
-<f:view renderKitId="PRIMEFACES_MOBILE" />
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -29,23 +27,22 @@
 </h:head>
 
 <h:body>
-    <pm:page>
-        <pm:header>
-            <nav class="blue lighten-4">
-                <div class="nav-wrapper">
-                    <a href="#">
-                        <img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" />
-                    </a>
-                    <ul class="right">
-                    </ul>
-                </div>
-            </nav>
-        </pm:header>
+    <header>
+        <nav class="blue lighten-4">
+            <div class="nav-wrapper">
+                <a href="#">
+                    <img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" />
+                </a>
+                <ul class="right">
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-        <pm:content id="content">
-            <ui:insert name="content"></ui:insert>
-        </pm:content>
-    </pm:page>
+    <main id="content">
+        <ui:insert name="content"></ui:insert>
+    </main>
+    
     <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
     <h:outputScript library="libs" name="js/materialize.min.js" />
     <h:outputScript library="js" name="application.js" />
