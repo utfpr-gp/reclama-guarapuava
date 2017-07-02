@@ -48,41 +48,44 @@
             <div class="row">
                 <div class="input-field col offset-s3 s6">
                     <h:form>
-                    <h:selectOneMenu id="neighborhoods" value="#{occurrenceBean.neigIdSelected}">
+                    <h:selectOneMenu id="neighborhoods" value="#{occurrenceBean.neighborhoodId}">
                         <f:selectItem itemValue="" itemLabel="Selecione um Bairro"/>
                         <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
                         <f:ajax event="change"
                                 listener="#{occurrenceBean.byNeighborhood()}"
                                 execute="neighborhoods"
-                                render=":index-content:neighborhood"
+                                render="occurrence-neighborhood"
                         />
                     </h:selectOneMenu>
                     <h:outputLabel for="neighborhood">Bairro</h:outputLabel>
             </h:form>
                 </div>
             </div>
-            <div class="row">
-                <ui:repeat id="neighborhood" value="#{occurrenceBean.occurrenceList}" var="occurrence">
-                    <div class="col s12 l4">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="http://lorempixel.com/400/400/city/"/>
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">#{occurrence.problem.name}<i class="material-icons right">more_vert</i></span>
-                                <p><a href="/ocorrencias/#{occurrence.id}/detalhes">Detalhes</a></p>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">#{occurrence.problem.name}<i class="material-icons right">close</i></span>
-                                <p>Endereço: #{occurrence.address} - #{occurrence.neighborhood.name}</p>
-                                <p>Reclamação: #{occurrence.category.name} - #{occurrence.problem.name}</p>
-                                <p>Descrição: #{occurrence.description}</p>
-                                <p><a href="/ocorrencias/#{occurrence.id}/detalhes">Detalhes</a></p>
+            
+            <h:panelGroup id="occurrence-neighborhood">
+                <div class="row">
+                    <ui:repeat value="#{occurrenceBean.occurrenceList}" var="occurrence">
+                        <div class="col s12 l4">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="http://lorempixel.com/400/400/city/"/>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">#{occurrence.problem.name}<i class="material-icons right">more_vert</i></span>
+                                    <p><a href="/ocorrencias/#{occurrence.id}/detalhes">Detalhes</a></p>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">#{occurrence.problem.name}<i class="material-icons right">close</i></span>
+                                    <p>Endereço: #{occurrence.address} - #{occurrence.neighborhood.name}</p>
+                                    <p>Reclamação: #{occurrence.category.name} - #{occurrence.problem.name}</p>
+                                    <p>Descrição: #{occurrence.description}</p>
+                                    <p><a href="/ocorrencias/#{occurrence.id}/detalhes">Detalhes</a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </ui:repeat>
-            </div>
+                    </ui:repeat>
+                </div>
+            </h:panelGroup>
         </article>
     </ui:define>
 </ui:composition>

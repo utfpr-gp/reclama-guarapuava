@@ -102,7 +102,7 @@ public class OccurrenceBean {
         if (recordRelationships() && occurrenceRecord()) {
            MessageUtil.setFlashMessage();
            resetAttrs();
-           return "pretty:home";
+           return "pretty:occurrences";
         } 
         
         MessageUtil.showMessage("Erro ao " + action + " a ocorrência " , "", FacesMessage.SEVERITY_ERROR);

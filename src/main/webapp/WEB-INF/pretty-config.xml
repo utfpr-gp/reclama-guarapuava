@@ -9,6 +9,11 @@
         <view-id value="/index.xhtml"/>
     </url-mapping>
     
+    <url-mapping id="occurrences">
+        <pattern value="/ocorrencias"/>
+        <view-id value="/view/ocorrencias/inicio.xhtml"/>
+    </url-mapping>
+    
     <url-mapping id="occurrence-neighborhood">
         <pattern value="/ocorrencias/bairros"/>
         <view-id value="/view/bairros/ocorrencias-por-bairro.xhtml"/>
