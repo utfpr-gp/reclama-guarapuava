@@ -5,6 +5,9 @@
  */
 package br.edu.utfpr.util;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
 /**
  *
  * @author jefferson
@@ -17,5 +20,9 @@ public class MethodsUtil {
         if (obj == null) return true;
         
         return false;
+    }
+    
+    public static HttpServletRequest getRequest(){
+        return (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
     }
 }

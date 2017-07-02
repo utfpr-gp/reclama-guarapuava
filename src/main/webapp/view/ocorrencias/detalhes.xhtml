@@ -9,34 +9,65 @@
 
     <ui:define name="content">
         <p:messages></p:messages>
-
-        <h:form>
-            <div class="row">
-                <div class="input-field col s12">
-                    <h:inputTextarea id="comment" value="#{commentBean.comment.description}"></h:inputTextarea>
-                    <h:outputLabel for="comment">Digite um comentario sobre a ocorrencia</h:outputLabel>
+        
+        <div class="container">
+            <article id="show-occurrence">
+                <header class="center-align">
+                    <h3>#{occurrenceBean.occurrence.problem.name}</h3>
+                </header>
+                <div class="divider"></div>
+                
+                <div class="row">
+                    <div class="col s6 panel-occurrence">
+                        <div class="card-panel">
+                            <h5 class="center-align">Descrição</h5>
+                            <p>#{occurrenceBean.occurrence.description}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col s6 panel-occurrence">
+                        <div class="card-panel">
+                            <h5 class="center-align">Informações</h5>
+                            <p>Bairro: #{occurrenceBean.occurrence.neighborhood.name}</p>
+                            <p>Endereço: #{occurrenceBean.occurrence.address}</p>
+                            <p>Categoria: #{occurrenceBean.occurrence.category.name}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="row">
-                <h:commandButton action="#{commentBean.persist()}" class="waves-effect waves-light btn" value="Registrar comentario"></h:commandButton>
-            </div>
+                
+            </article>
 
-            <div class="row">
-                <div class="col s6">
-                    <p:dataTable var="com" value="#{commentBean.findAll()}" paginator="false" >
+            <h:form>
+                <div class="card-panel">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <h:inputTextarea id="comment" class="materialize-textarea" value="#{commentBean.comment.description}"></h:inputTextarea>
+                            <h:outputLabel for="comment">Digite um comentario sobre a ocorrencia</h:outputLabel>
+                        </div>
+                    </div>
 
-                        <p:column headerText="Nome">
-                            <h:outputText value="#{request.remoteUser}" /> <!-- mudar se existir cadastro de usuario -->
-                        </p:column>
-
-                        <p:column headerText="COmentario">
-                            <h:outputText value="#{com.description}" />
-                        </p:column>
-                    </p:dataTable>
+                    <div class="row">
+                        <h:commandButton action="#{commentBean.persist()}" class="waves-effect waves-light btn" value="Registrar comentario"></h:commandButton>
+                    </div>
                 </div>
-            </div>
-        </h:form>
+
+                <div class="row">
+                    <div class="col s12">
+                        <p:dataTable var="com" value="#{commentBean.findAll()}" paginator="false" >
+
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{request.remoteUser}" /> <!-- mudar se existir cadastro de usuario -->
+                            </p:column>
+
+                            <p:column headerText="Comentario">
+                                <h:outputText value="#{com.description}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </h:form><!--h:form -->
+        </div>
+        
     </ui:define>
 
 </ui:composition>

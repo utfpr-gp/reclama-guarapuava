@@ -11,6 +11,7 @@ import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by sartori on 27/06/17.
@@ -123,6 +124,20 @@ public class OccurrenceBean {
         this.occurrence = new Occurrence();
     }
     
+    public void loadOccurrence() {
+        HttpServletRequest request = MethodsUtil.getRequest();
+        Long id = Long.parseLong(request.getParameter("id"));
+        
+        setOccurrence(occurrenceService.getById(id));
+    }
+    
+    public void resetAttrs() {
+        occurrence = new Occurrence();
+        categoryId = null;
+        problemId = null;
+        neighborhoodId = null;
+    }
+    
     private boolean recordRelationships() {
         if (!this.occurrence.registerCategoryByid(categoryId)) { 
             MessageUtil.showMessage("Categoria inválida", "", FacesMessage.SEVERITY_ERROR);
@@ -172,12 +187,5 @@ public class OccurrenceBean {
         }
         
         return false;
-    }
-    
-    private void resetAttrs() {
-        occurrence = new Occurrence();
-        categoryId = null;
-        problemId = null;
-        neighborhoodId = null;
     }
 }
