@@ -66,6 +66,10 @@ public class OccurrenceBean {
         occurrenceService = new OccurrenceService();
     }
 
+    public List<Occurrence> byNeighborhood(){
+        return occurrenceList = occurrenceService.getByNeighborhood(neigIdSelected);
+    }
+
     public List<Occurrence> findAll() {
         return occurrenceList = occurrenceService.findAll();
     }
@@ -92,6 +96,10 @@ public class OccurrenceBean {
 
     public void setOccurrenceService(OccurrenceService occurrenceService) {
         this.occurrenceService = occurrenceService;
+    }
+
+    public void edit(Occurrence occurrence){
+        this.occurrence = occurrence;
     }
 
     public void delete(Occurrence occurrence) {
