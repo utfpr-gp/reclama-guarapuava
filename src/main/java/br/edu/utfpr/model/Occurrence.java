@@ -5,6 +5,10 @@
  */
 package br.edu.utfpr.model;
 
+import br.edu.utfpr.model.service.CategoryService;
+import br.edu.utfpr.model.service.NeighborhoodService;
+import br.edu.utfpr.model.service.ProblemService;
+import br.edu.utfpr.util.MethodsUtil;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Entity;
@@ -209,4 +213,24 @@ public class Occurrence implements Serializable {
         return "br.edu.utfpr.model.Occurrence[ id=" + id + " ]";
     }
     
+    public boolean registerCategoryByid(Long categoryId) {
+        CategoryService categoryService = new CategoryService();
+        this.category = categoryService.getById(categoryId);
+        
+        return !MethodsUtil.isNull(this.category);
+    }
+    
+    public boolean registerProblemByid(Long problemId) {
+        ProblemService problemService = new ProblemService();
+        this.problem = problemService.getById(problemId);
+        
+        return !MethodsUtil.isNull(this.problem);
+    }
+    
+    public boolean registerNeighborhoodByid(Long neighborhoodId) {
+        NeighborhoodService neighborhoodService = new NeighborhoodService();
+        this.neighborhood = neighborhoodService.getById(neighborhoodId);
+        
+        return !MethodsUtil.isNull(this.neighborhood);
+    }
 }

@@ -8,39 +8,36 @@
         <pattern value="/" />
         <view-id value="/index.xhtml"/>
     </url-mapping>
+
     <url-mapping id="ocorrencias-bairros">
         <pattern value="/ocorrencias/bairros"/>
         <view-id value="/view/bairros/ocorrencias-por-bairro.xhtml"/>
     </url-mapping>
+    
     <url-mapping id="cadastro-ocorrencia">
         <pattern value="/ocorrencias/novo"/>
         <view-id value="/view/ocorrencias/cadastrar.xhtml"/>
     </url-mapping>
-    <url-mapping id="cadastro-ocorrencia">
-        <pattern value="/ocorrencias"/>
-        <view-id value="/view/ocorrencias/inicio.xhtml"/>
-    </url-mapping>
-    <url-mapping id="ocorrencia-id">
-        <pattern value="/ocorrencias/#{id}/detalhes"/>
-        <view-id value="/view/ocorrencias/detalhes.xhtml"/>
-    </url-mapping>
-    <url-mapping id="cadastro-categoria">
-        <pattern value="/categorias"/>
-        <view-id value="/view/categorias/register.xhtml"/>
-    </url-mapping>
-
+    
     <!--=========== ROTAS ADMIN =============-->
     <url-mapping id="admin-ocorrencia">
         <pattern value="/admin/ocorrencias/novo"/>
         <view-id value="/view/admin/problemas-cadastro.xhtml"/>
     </url-mapping>
+    
     <url-mapping id="admin-categoria">
         <pattern value="/admin/categorias/novo"/>
         <view-id value="/view/admin/categorias-cadastro.xhtml"/>
     </url-mapping>
+    
     <url-mapping id="admin-bairro">
         <pattern value="/admin/bairros/novo"/>
         <view-id value="/view/admin/bairros-cadastro.xhtml"/>
+    </url-mapping>
+    
+    <url-mapping id="listagens ocorrencias">
+        <pattern value="/admin/ocorrencias"/>
+        <view-id value="/view/admin/ocorrencias.xhtml"/>
     </url-mapping>
     <!--=========== ROTAS ADMIN =============-->
 

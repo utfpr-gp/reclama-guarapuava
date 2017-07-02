@@ -18,5 +18,12 @@ public class MessageUtil {
         FacesContext context = FacesContext.getCurrentInstance();
         FacesMessage facesMessage = new FacesMessage(type, resume, detail);
         context.addMessage(null, facesMessage);        
+        
+        context.getExternalContext().getFlash().setKeepMessages(false);
+    }
+    
+    public static void setFlashMessage(){
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().getFlash().setKeepMessages(true);
     }
 }

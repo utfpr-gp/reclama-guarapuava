@@ -19,46 +19,46 @@
                     
                     <div class="row">
                         <div class="input-field col s12">
-                            <h:selectOneMenu id="category" value="#{occurrenceBean.catIdSelected}">
+                            <h:selectOneMenu id="occurrence-category" value="#{occurrenceBean.categoryId}">
                                 <f:selectItem itemValue="" itemLabel="Selecione uma categoria"></f:selectItem>
                                 <f:selectItems var="category" value="#{categoryBean.findAll()}" itemValue="#{category.id}" itemLabel="#{category.name}"/>
                             </h:selectOneMenu>
                             
-                            <h:outputLabel for="category">Categoria</h:outputLabel>
+                            <h:outputLabel for="occurrence-category">Categoria</h:outputLabel>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="input-field col s12">
-                            <h:selectOneMenu id="problem" value="#{occurrenceBean.problemId}">
+                            <h:selectOneMenu id="occurrence-problem" value="#{occurrenceBean.problemId}">
                                 <f:selectItem itemValue="" itemLabel="Selecione um problema"></f:selectItem>
                                 <f:selectItems var="problem" value="#{problemBean.findAll()}" itemValue="#{problem.id}" itemLabel="#{problem.name}"/>
                             </h:selectOneMenu>
                             
-                            <h:outputLabel for="problem">Informe o problema</h:outputLabel>
+                            <h:outputLabel for="occurrence-problem">Informe o problema</h:outputLabel>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="input-field col s6">
-                            <h:inputText id="address" value="#{occurrenceBean.occurrence.address}"></h:inputText>
-                            <h:outputLabel for="address">Informe o endereço da ocorrência</h:outputLabel>
+                            <h:inputText id="occurrence-address" value="#{occurrenceBean.occurrence.address}"></h:inputText>
+                            <h:outputLabel for="occurrence-address">Informe o endereço da ocorrência</h:outputLabel>
                         </div>
                         
                         <div class="input-field col s6">
-                            <h:selectOneMenu id="neighborhood" value="#{occurrenceBean.neigIdSelected}">
+                            <h:selectOneMenu id="occurrence-neighborhood" value="#{occurrenceBean.neighborhoodId}">
                                 <f:selectItem itemValue="" itemLabel="Selecione um Bairro"></f:selectItem>
                                 <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
                             </h:selectOneMenu>
                             
-                            <h:outputLabel for="neighborhood">Bairro</h:outputLabel>
+                            <h:outputLabel for="occurrence-neighborhood">Bairro</h:outputLabel>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="input-field col s12">
-                            <h:inputTextarea id="description" class="materialize-textarea" value="#{occurrenceBean.occurrence.description}"></h:inputTextarea>
-                            <h:outputLabel for="description">Descreva o problema</h:outputLabel>
+                            <h:inputTextarea id="occurrence-description" class="materialize-textarea" value="#{occurrenceBean.occurrence.description}"></h:inputTextarea>
+                            <h:outputLabel for="occurrence-description">Descreva o problema</h:outputLabel>
                         </div>
                     </div>
                     
