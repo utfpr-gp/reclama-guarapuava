@@ -16,9 +16,10 @@ import java.util.List;
  */
 public class CategoryDAO extends AbstractDAO<Long, Category>{
 
-    public List<Category> getCategories(){
+    public List<Object[]> countOccurrences(){
         this.entityManager = JPAUtil.getEntityManager();
-        return entityManager.createQuery("select o.category.name, count(o) from Occurrence o where o.category = :param")
-           .getResultList();
+        return entityManager.createQuery("SELECT o FROM Category c "
+                                       + "LEFT JOIN c.occurrences o", Object[].class)
+                            .getResultList();
     }
 }

@@ -7,6 +7,8 @@ package br.edu.utfpr.model.service;
 
 import br.edu.utfpr.model.Category;
 import br.edu.utfpr.model.dao.CategoryDAO;
+import br.edu.utfpr.util.JPAUtil;
+import java.util.List;
 
 /**
  *
@@ -17,5 +19,21 @@ public class CategoryService extends AbstractService<Long, Category>{
     public CategoryService() {
         dao = new CategoryDAO();
     }
+    
+    public List<Object[]> countOccurrences() {
+        List<Object[]> list = null;
+        
+        try {
+            JPAUtil.beginTransaction();
+            list = ((CategoryDAO) dao).countOccurrences();
+            JPAUtil.commit();
+        }catch (Exception e){
+            JPAUtil.rollBack();
+        }finally {
+            JPAUtil.closeEntityManager();
+        }
+        
+        return list;
+    }   
     
 }

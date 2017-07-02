@@ -215,22 +215,22 @@ public class Occurrence implements Serializable {
     
     public boolean registerCategoryByid(Long categoryId) {
         CategoryService categoryService = new CategoryService();
-        this.category = categoryService.getById(categoryId);
+        category = categoryService.getById(categoryId);
         
-        return !MethodsUtil.isNull(this.category);
+        return !MethodsUtil.isNull(category);
     }
     
     public boolean registerProblemByid(Long problemId) {
         ProblemService problemService = new ProblemService();
-        this.problem = problemService.getById(problemId);
+        problem = problemService.getById(problemId);
         
-        return !MethodsUtil.isNull(this.problem);
+        return !MethodsUtil.isNull(problem);
     }
     
     public boolean registerNeighborhoodByid(Long neighborhoodId) {
         NeighborhoodService neighborhoodService = new NeighborhoodService();
-        this.neighborhood = neighborhoodService.getById(neighborhoodId);
+        neighborhood = neighborhoodService.getById(neighborhoodId);
         
-        return !MethodsUtil.isNull(this.neighborhood);
+        return !MethodsUtil.isNull(neighborhood);
     }
 }

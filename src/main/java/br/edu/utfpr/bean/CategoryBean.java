@@ -23,6 +23,24 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class CategoryBean {
 
+    private Category category;
+    private List<Category> categoryList;
+    private CategoryService categoryService;
+
+    public CategoryBean() {
+    }
+
+    @PostConstruct
+    public void init() {
+        category = new Category();
+        categoryList = new ArrayList<>();
+        categoryService = new CategoryService();
+    }
+
+    public void edit(Category category) {
+        this.category = category;
+    }
+    
     public Category getCategory() {
         return category;
     }
@@ -50,24 +68,6 @@ public class CategoryBean {
      */
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
-    }
-
-    private Category category;
-    private List<Category> categoryList;
-    private CategoryService categoryService;
-
-    public CategoryBean() {
-    }
-
-    @PostConstruct
-    public void init() {
-        category = new Category();
-        categoryList = new ArrayList<>();
-        categoryService = new CategoryService();
-    }
-
-    public void edit(Category category) {
-        this.category = category;
     }
 
     public void delete(Category category) {
@@ -104,5 +104,4 @@ public class CategoryBean {
     public List<Category> findAll() {
         return categoryList = categoryService.findAll();
     }
-
 }

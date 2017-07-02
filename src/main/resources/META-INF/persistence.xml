@@ -2,6 +2,17 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="reclama_guarapuava" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>br.edu.utfpr.model.Category</class>
+    <class>br.edu.utfpr.model.City</class>
+    <class>br.edu.utfpr.model.Comment</class>
+    <class>br.edu.utfpr.model.LikeDislike</class>
+    <class>br.edu.utfpr.model.Neighborhood</class>
+    <class>br.edu.utfpr.model.Occurrence</class>
+    <class>br.edu.utfpr.model.Problem</class>
+    <class>br.edu.utfpr.model.State</class>
+    <class>br.edu.utfpr.model.Status</class>
+    <class>br.edu.utfpr.model.User</class>
+    <class>br.edu.utfpr.model.UserRole</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
@@ -15,6 +26,7 @@
       <!-- property name="hibernate.hbm2ddl.auto" value="create" /-->
       <!-- javax.persistence.schema-generation.database.action : for database action, values are "none", "create", "drop-and-create", "drop". -->
       <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/-->
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

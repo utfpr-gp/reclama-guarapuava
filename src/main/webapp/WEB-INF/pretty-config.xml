@@ -27,22 +27,22 @@
     </url-mapping>
 
     <!--=========== ROTAS ADMIN =============-->
-    <url-mapping id="admin-ocorrencia">
-        <pattern value="/admin/ocorrencias/novo"/>
+    <url-mapping id="admin-new-problem">
+        <pattern value="/admin/problemas/novo"/>
         <view-id value="/view/admin/problemas-cadastro.xhtml"/>
     </url-mapping>
     
-    <url-mapping id="admin-categoria">
+    <url-mapping id="admin-new-category">
         <pattern value="/admin/categorias/novo"/>
         <view-id value="/view/admin/categorias-cadastro.xhtml"/>
     </url-mapping>
     
-    <url-mapping id="admin-bairro">
+    <url-mapping id="admin-new-neighborhood">
         <pattern value="/admin/bairros/novo"/>
         <view-id value="/view/admin/bairros-cadastro.xhtml"/>
     </url-mapping>
     
-    <url-mapping id="listagens ocorrencias">
+    <url-mapping id="admin-list-occurrences">
         <pattern value="/admin/ocorrencias"/>
         <view-id value="/view/admin/ocorrencias.xhtml"/>
     </url-mapping>
