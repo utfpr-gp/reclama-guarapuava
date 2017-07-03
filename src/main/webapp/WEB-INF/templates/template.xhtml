@@ -8,6 +8,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:pretty="http://ocpsoft.com/prettyfaces"
 >
 
 <h:head>
@@ -30,9 +31,10 @@
     <header>
         <nav class="blue lighten-4">
             <div class="nav-wrapper">
-                <a href="#">
-                    <img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" />
-                </a>
+                <pretty:link mappingId="home">
+                    <f:view><img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" /></f:view>
+                </pretty:link>
+                
                 <ul class="right">
                 </ul>
             </div>

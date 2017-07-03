@@ -174,3 +174,11 @@ h6 {
     font-size: medium !important;
   }
 }
+
+.center-fix{
+    margin-left: 15em !important;
+}
+
+.margin-fix{
+    margin-right: 1em !important;
+}

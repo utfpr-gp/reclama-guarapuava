@@ -6,35 +6,44 @@
                 template="/WEB-INF/templates/template.xhtml"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
-                xmlns = "http://www.w3.org/1999/xhtml">
+                xmlns = "http://www.w3.org/1999/xhtml"
+                xmlns:pretty="http://ocpsoft.com/prettyfaces">
 
     <ui:define name="content">
         <p:messages></p:messages>
+        <div class="container">
+            <div class="row z-depth-4 card-panel">
 
-        <h:form id="form">
-            <h:panelGrid columns="3">
-                <p:outputLabel value="Usuário" for="inputUsuario" />
-                <p:inputText id="inputUsuario" required="true"
-                             value="#{loginBean.usuario}" />
-                <p:message for="inputUsuario" />
+                <h:form id="form" class="col s6 center center-fix">
+                    <h4>Acesso ao sistema</h4>
+                    <div class="row">
+                        <div class="input-field">
+                            <h:outputLabel value="Usuário" for="inputUsuario" />
+                            <h:inputText id="inputUsuario" required="true" value="#{loginBean.usuario}" />
+                        </div>
+                    </div>
 
-                <p:outputLabel value="Senha" for="inputSenha" />
-                <p:password id="inputSenha" required="true"
-                            value="#{loginBean.senha}" />
-                <p:message for="inputSenha" />
-            </h:panelGrid>
+                    <div class="row">
+                        <div class="input-field">
+                            <h:outputLabel value="Senha" for="inputSenha" />
+                            <h:inputSecret id="inputSenha" required="true" value="#{loginBean.senha}" />
+                        </div>
+                    </div>
 
-            <p:commandButton id="btEntrar" value="Entrar" ajax="false"
-                             action="#{loginBean.onClickLogar()}"
-                             icon="ui-icon-check" />
+                    <p:commandButton id="btEntrar" value="Entrar" ajax="false" 
+                                     action="#{loginBean.onClickLogar()}" 
+                                     class="btn margin-fix"/>
+                    
+                </h:form>
+                <div class="row col s6 center-align center-fix">
+                    <br/>
+                    <pretty:link mappingId="sign-up" class="center">
+                        Não possui conta? Cadastre-se
+                    </pretty:link>
+                </div>
 
-
-        </h:form>
-        <h:form>
-            <p:commandButton id="btSair" value="Logout" ajax="false"
-                             action="#{loginBean.logoutB()}"
-                             icon="ui-icon-check" />
-        </h:form>
+            </div>
+        </div>
     </ui:define>
 
 </ui:composition>

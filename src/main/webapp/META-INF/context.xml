@@ -4,7 +4,7 @@
            driverName="com.mysql.jdbc.Driver"
            connectionURL="jdbc:mysql://localhost:3306/reclama_guarapuava_db"
            connectionName="root"
-           connectionPassword="mysql"
+           connectionPassword="puppetmaster"
            digest="MD5"
 
            userTable="user"
