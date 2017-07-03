@@ -8,12 +8,11 @@ package br.edu.utfpr;
 import br.edu.utfpr.model.Category;
 import br.edu.utfpr.model.Neighborhood;
 import br.edu.utfpr.model.Problem;
+import br.edu.utfpr.model.User;
+import br.edu.utfpr.model.UserRole;
+import br.edu.utfpr.util.JPAUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +36,7 @@ public class MainServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("reclama_guarapuava");
-        EntityManager em = emf.createEntityManager();
-
+        EntityManager em = JPAUtil.getEntityManager();
 
         em.getTransaction().begin();
 
@@ -192,12 +189,33 @@ public class MainServlet extends HttpServlet {
         Neighborhood n19 = new Neighborhood("Vila Bela");
         em.persist(n19);
         
+        User admin = new User("admin", "admin@admin.com", "admin", "e10adc3949ba59abbe56e057f20f883e", null);
+        em.persist(admin);
+        
+        User user1 = new User("Jefferson", "jeff@gmail.com", "jefferson", "e10adc3949ba59abbe56e057f20f883e", null);
+        em.persist(user1);
+        
+        User user2 = new User("Lucas", "lucas@agmail.com", "lucas", "e10adc3949ba59abbe56e057f20f883e", null);
+        em.persist(user2);
+        
+        User user3 = new User("luiz", "luiz@gmail.com", "luiz", "e10adc3949ba59abbe56e057f20f883e", null);
+        em.persist(user3);
+        
+        UserRole adminRole = new UserRole("admin", "ADM");
+        em.persist(adminRole);
+        
+        UserRole user1Role = new UserRole("jefferson", "USER");
+        em.persist(adminRole);
+        
+        UserRole user2Role = new UserRole("lucas", "USER");
+        em.persist(adminRole);
+        
+        UserRole user3Role = new UserRole("luiz", "USER");
+        em.persist(adminRole);
+        
         em.getTransaction().commit();
         //em.getTransaction().begin();
-
-
         em.close();
-        emf.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

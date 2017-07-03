@@ -5,6 +5,7 @@
  */
 package br.edu.utfpr.bean;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 @ManagedBean
 @ViewScoped
-public class LoginBean {
+public class LoginBean implements Serializable {
 
     private static final String PAGINA_INDEX = "/view/ocorrencias/inicio.xhtml";
 
@@ -47,12 +48,14 @@ public class LoginBean {
     public String onClickLogar() {
         FacesContext fc = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
-        session.invalidate();
+        
         try {
             HttpServletRequest request = (HttpServletRequest) FacesContext.
                     getCurrentInstance().getExternalContext().getRequest();
+            
             request.login(this.usuario, this.senha);
-            return "pretty:home";
+            
+            return PAGINA_INDEX;
         } catch (ServletException e) {
             System.out.println(e);
         } finally {
@@ -67,7 +70,6 @@ public class LoginBean {
         FacesContext fc = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
         session.invalidate();
-
     }
 
     public String getUsuario() {

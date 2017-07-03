@@ -9,6 +9,11 @@
         <view-id value="/index.xhtml"/>
     </url-mapping>
     
+    <url-mapping id="sign-in">
+        <pattern value="/login" />
+        <view-id value="/view/sessions/login.xhtml"/>
+    </url-mapping>
+    
     <url-mapping id="occurrences">
         <pattern value="/ocorrencias"/>
         <view-id value="/view/ocorrencias/inicio.xhtml"/>
