@@ -6,23 +6,16 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pm="http://primefaces.org/mobile"
-                xmlns:pretty="http://ocpsoft.com/prettyfaces">
+>
 
     <ui:define name="content">
         <header id="home-page-header">
             <img id="image-header" src="resources/images/gp.jpg" />
             <div id="box-action">
-                <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
-                <pretty:link mappingId="occurrence-record" class="waves-effect waves-light btn blue darken-3">
-                    <f:view>PUBLICAR UMA OCORRENCIA</f:view>
-                </pretty:link>
-                </h:panelGroup>
-                
-                <h:panelGroup rendered="#{empty sessionUserBean.currentUser}">
-                <pretty:link mappingId="sign-in" class="waves-effect waves-light btn blue darken-3">
-                    <f:view>PUBLICAR UMA OCORRENCIA</f:view>
-                </pretty:link>
-                </h:panelGroup>
+                <a href="cadastrar.xhtml" class="waves-effect waves-light btn blue darken-3">
+                    <i class="fa fa-facebook-square" aria-hidden="true" />
+                    PUBLICAR UMA OCORRENCIA
+                </a>
             </div>
             <div id="box-text-header" class="center-align">
             </div>

@@ -55,7 +55,7 @@ public class LoginBean implements Serializable {
             
             request.login(this.usuario, this.senha);
             
-            return "pretty:occurrences";
+            return PAGINA_INDEX;
         } catch (ServletException e) {
             System.out.println(e);
         } finally {

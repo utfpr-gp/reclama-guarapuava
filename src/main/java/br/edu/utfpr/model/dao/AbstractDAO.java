@@ -39,7 +39,7 @@ public class AbstractDAO<PK, T> {
         this.entityManager = JPAUtil.getEntityManager();
 
         String queryString = "SELECT o FROM " + getTypeClass().getName() + " o where o." + propertyName + " = :param";
-        
+
         Query query = entityManager.createQuery(queryString);
         query.setParameter("param", propertyValue);
 

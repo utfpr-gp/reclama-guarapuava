@@ -65,7 +65,7 @@ public class ProblemBean {
         problemList = new ArrayList<>();
         problemService = new ProblemService();
     }
-    
+
     public void edit(Problem problem) {
         this.problem = problem;
     }

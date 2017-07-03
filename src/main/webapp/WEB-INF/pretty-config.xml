@@ -8,17 +8,22 @@
         <pattern value="/" />
         <view-id value="/index.xhtml"/>
     </url-mapping>
-    
+
     <url-mapping id="sign-in">
         <pattern value="/login" />
         <view-id value="/view/sessions/login.xhtml"/>
     </url-mapping>
-    
+
+    <url-mapping id="register">
+        <pattern value="/register" />
+        <view-id value="/view/sessions/usuarios-cadastro.xhtml"/>
+    </url-mapping>
+
     <url-mapping id="occurrences">
         <pattern value="/ocorrencias"/>
         <view-id value="/view/ocorrencias/inicio.xhtml"/>
     </url-mapping>
-    
+
     <url-mapping id="occurrence-neighborhood">
         <pattern value="/ocorrencias/bairros"/>
         <view-id value="/view/bairros/ocorrencias-por-bairro.xhtml"/>
@@ -29,7 +34,7 @@
         <view-id value="/view/ocorrencias/cadastrar.xhtml"/>
         <action>#{occurrenceBean.resetAttrs}</action>
     </url-mapping>
-    
+
     <url-mapping id="occurrence">
         <pattern value="/ocorrencias/#{id}"/>
         <view-id value="/view/ocorrencias/detalhes.xhtml"/>
@@ -42,17 +47,17 @@
         <pattern value="/admin/problemas/novo"/>
         <view-id value="/view/admin/problemas-cadastro.xhtml"/>
     </url-mapping>
-    
+
     <url-mapping id="admin-new-category">
         <pattern value="/admin/categorias/novo"/>
         <view-id value="/view/admin/categorias-cadastro.xhtml"/>
     </url-mapping>
-    
+
     <url-mapping id="admin-new-neighborhood">
         <pattern value="/admin/bairros/novo"/>
         <view-id value="/view/admin/bairros-cadastro.xhtml"/>
     </url-mapping>
-    
+
     <url-mapping id="admin-list-occurrences">
         <pattern value="/admin/ocorrencias"/>
         <view-id value="/view/admin/ocorrencias.xhtml"/>

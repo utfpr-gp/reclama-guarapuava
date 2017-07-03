@@ -53,10 +53,6 @@ h6 {
   width: 100px;
 }
 
-div.nav-wrapper ul li a {
-  color: black;
-}
-
 /**********************************************
 ************ Header styles (index path) *******
 ***********************************************/
@@ -177,12 +173,4 @@ div.nav-wrapper ul li a {
   #box-text-header {
     font-size: medium !important;
   }
-}
-
-.center-fix{
-    margin-left: 15em !important;
-}
-
-.margin-fix{
-    margin-right: 1em !important;
 }

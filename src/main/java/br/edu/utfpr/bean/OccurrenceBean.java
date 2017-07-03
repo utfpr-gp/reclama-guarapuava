@@ -11,7 +11,6 @@ import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedProperty;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -28,9 +27,6 @@ public class OccurrenceBean {
     private Long problemId;
     private Long neighborhoodId;
     private String action;
-    
-    @ManagedProperty(value="#{sessionUserBean}")
-    private SessionUserBean sessionUserBean;
 
     public OccurrenceBean() {
     }
@@ -90,10 +86,6 @@ public class OccurrenceBean {
 
     public void setNeighborhoodId(Long neighborhoodId) {
         this.neighborhoodId = neighborhoodId;
-    }
-    
-    public void setSessionUserBean(SessionUserBean sessionUserBean) {
-        this.sessionUserBean = sessionUserBean;
     }
     
     //------------Get and Set ----------------- end
@@ -171,12 +163,11 @@ public class OccurrenceBean {
         System.out.println("Problem:" + this.occurrence.getProblem().getName());
         System.out.println("Address:" + this.occurrence.getAddress());
         System.out.println("Description:" + this.occurrence.getDescription());
-        System.out.println("Usuário:" + this.occurrence.getUser().getName());
     }
     
     private boolean occurrenceRecord() {
-        occurrence.setUser(sessionUserBean.getCurrentUser());
-       
+        logOccurrenceRecord();
+        
         if (MethodsUtil.isNull(occurrence.getId())) {
             action = "registrar";
        
@@ -184,7 +175,6 @@ public class OccurrenceBean {
                 MessageUtil.showMessage("Ocorrência registrada com sucesso", "", FacesMessage.SEVERITY_INFO);
                 
                 occurrenceList.add(occurrence);
-                logOccurrenceRecord(); 
                 return true;
             }
         } else {
