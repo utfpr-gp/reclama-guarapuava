@@ -205,13 +205,13 @@ public class MainServlet extends HttpServlet {
         em.persist(adminRole);
         
         UserRole user1Role = new UserRole("jefferson", "USER");
-        em.persist(adminRole);
+        em.persist(user1Role);
         
         UserRole user2Role = new UserRole("lucas", "USER");
-        em.persist(adminRole);
+        em.persist(user2Role);
         
         UserRole user3Role = new UserRole("luiz", "USER");
-        em.persist(adminRole);
+        em.persist(user3Role);
         
         em.getTransaction().commit();
         //em.getTransaction().begin();
