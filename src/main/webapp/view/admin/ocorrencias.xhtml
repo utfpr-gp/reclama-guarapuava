@@ -19,45 +19,40 @@
                 </header>
 
                 <div class="divider"></div>
+                
+                <p:dataTable var="occurrence" value="#{occurrenceBean.findAll()}" paginator="true" >
+                    <p:column headerText="Nome do Problema">
+                        <h:outputText value="#{occurrence.problem.name}" /> 
+                    </p:column>
+                    
+                    <p:column headerText="Bairro">
+                        <h:outputText value="#{occurrence.neighborhood.name}" /> 
+                    </p:column>
 
-                <h:dataTable value="#{occurrenceBean.findAll()}" var="occurrence">
-                    <h:column>
-                        <!-- column header -->
-                        <f:facet name="header">Nome do Problema</f:facet>
-                        <!-- row record -->
-                        #{occurrence.problem.name}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Bairro</f:facet>
-                        #{occurrence.neighborhood.name}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Categoria</f:facet>
-                        #{occurrence.category.name}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <pretty:link mappingId="occurrence" class="btn">
-                            <f:param value="#{occurrence.id}"/>
-                            <f:view>Detalhes</f:view>
-                        </pretty:link>
-                    </h:column>
-                        
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <h:form>
-                            <h:commandLink action="#{occurrenceBean.delete(occurrence)}" value="remover" class="btn red"/>
-                        </h:form>
-                    </h:column>
-
-                </h:dataTable>
+                    <p:column headerText="Categoria">
+                        <h:outputText value="#{occurrence.category.name}" />
+                    </p:column>
+                    
+                    <p:column headerText="">
+                        <f:view>
+                            <pretty:link mappingId="occurrence" class="btn">
+                                <f:param value="#{occurrence.id}"/>
+                                <f:view>Detalhes</f:view>
+                            </pretty:link>
+                        </f:view>
+                    </p:column>
+                    
+                    <p:column headerText="">
+                        <f:view>
+                            <h:form>
+                                <h:commandLink action="#{occurrenceBean.delete(occurrence)}" value="remover" class="btn red"/>
+                            </h:form>
+                        </f:view>
+                    </p:column>
+                </p:dataTable>
             </artigle>
         </div>
     </ui:define>
-
 </ui:composition>
 
 
