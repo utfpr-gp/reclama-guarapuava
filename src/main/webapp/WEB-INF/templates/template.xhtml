@@ -9,7 +9,8 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pretty="http://ocpsoft.com/prettyfaces"
->
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -35,8 +36,27 @@
                     <f:view><img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" /></f:view>
                 </pretty:link>
                 
-                <ul class="right">
-                </ul>
+                <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
+                    <ul class="right">
+                        <li>
+                            <pretty:link mappingId="occurrences">
+                                <f:view>Ocorrências</f:view>
+                            </pretty:link>
+                        </li>
+
+                        <li>
+                            <pretty:link mappingId="occurrence-record">
+                                <f:view>Nova Ocorrência</f:view>
+                            </pretty:link>
+                        </li>
+
+                        <li>
+                            <h:form>
+                                <h:commandLink action="#{loginBean.logoutB()}" value="Logout"></h:commandLink>
+                            </h:form>
+                        </li>
+                    </ul>
+                </h:panelGroup> 
             </div>
         </nav>
     </header>
