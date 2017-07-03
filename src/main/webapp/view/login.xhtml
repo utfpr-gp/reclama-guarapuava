@@ -25,10 +25,16 @@
             </h:panelGrid>
 
             <p:commandButton id="btEntrar" value="Entrar" ajax="false"
-                             action="#{loginBean.redireciona()}"
+                             action="#{loginBean.onClickLogar()}"
+                             icon="ui-icon-check" />
+
+
+        </h:form>
+        <h:form>
+            <p:commandButton id="btSair" value="Logout" ajax="false"
+                             action="#{loginBean.logoutB()}"
                              icon="ui-icon-check" />
         </h:form>
-
     </ui:define>
 
 </ui:composition>

@@ -14,6 +14,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -50,6 +51,9 @@ public class LoginBean {
     }
 
     public String onClickLogar() {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+        session.invalidate();
         try {
             HttpServletRequest request = (HttpServletRequest) FacesContext.
                     getCurrentInstance().getExternalContext().getRequest();
@@ -63,6 +67,13 @@ public class LoginBean {
         }
 
         return null;
+    }
+
+    public void logoutB() {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+        session.invalidate();
+
     }
 
     public String getUsuario() {
