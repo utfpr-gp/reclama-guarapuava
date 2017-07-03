@@ -9,7 +9,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
@@ -45,11 +44,6 @@ public class LoginBean {
         }
     }
 
-    public String redireciona() {
-        System.out.println("hsdfuhsduifhsduifhsdufhisdfusdhfisduf************************");
-        return "view/ocorrencias/inicio.xhtml";
-    }
-
     public String onClickLogar() {
         FacesContext fc = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
@@ -58,7 +52,7 @@ public class LoginBean {
             HttpServletRequest request = (HttpServletRequest) FacesContext.
                     getCurrentInstance().getExternalContext().getRequest();
             request.login(this.usuario, this.senha);
-            return PAGINA_INDEX;
+            return "pretty:home";
         } catch (ServletException e) {
             System.out.println(e);
         } finally {
