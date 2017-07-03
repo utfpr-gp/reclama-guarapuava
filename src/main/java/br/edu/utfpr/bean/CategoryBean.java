@@ -8,12 +8,14 @@ package br.edu.utfpr.bean;
 import br.edu.utfpr.model.Category;
 import br.edu.utfpr.model.service.CategoryService;
 import br.edu.utfpr.util.MessageUtil;
+import br.edu.utfpr.util.MethodsUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -82,7 +84,6 @@ public class CategoryBean {
     }
 
     public void persist() {
-
         if (category.getId() == null) {
             if (categoryService.save(category)) {
                 this.categoryList.add(category);

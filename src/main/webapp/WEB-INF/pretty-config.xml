@@ -29,6 +29,7 @@
         <pattern value="/ocorrencias/#{id}"/>
         <view-id value="/view/ocorrencias/detalhes.xhtml"/>
         <action>#{occurrenceBean.loadOccurrence}</action>
+        <action>#{commentBean.reloadCommentList}</action>
     </url-mapping>
 
     <!--=========== ROTAS ADMIN =============-->

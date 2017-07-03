@@ -102,6 +102,7 @@ public class OccurrenceBean {
         if (recordRelationships() && occurrenceRecord()) {
            MessageUtil.setFlashMessage();
            resetAttrs();
+           
            return "pretty:occurrences";
         } 
         

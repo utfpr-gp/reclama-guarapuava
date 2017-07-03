@@ -11,13 +11,14 @@ import br.edu.utfpr.model.service.ProblemService;
 import br.edu.utfpr.util.MethodsUtil;
 import java.io.Serializable;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -29,14 +30,16 @@ import javax.persistence.Table;
 public class Occurrence implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private static final String[] ALL_STATES = {"Solucionado", "Não Solucionado", "Urgente"};
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @OneToOne
+    @ManyToOne
     private Category category;
     
-    @OneToOne
+    @ManyToOne
     private Problem problem;
     
     private String address;
@@ -48,28 +51,24 @@ public class Occurrence implements Serializable {
     
     private String photo;
     
-    @OneToOne
-    private Status status;
+    private String status;
     
     private Long views;
     
     @ManyToOne
-    private LikeDislike likes_dislikes;
-    
-    @ManyToOne
     private User user;
     
-    @OneToMany
+    @OneToMany(mappedBy = "occurrence", targetEntity = Comment.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Comment> comments;
     
-    @OneToMany
+    @OneToMany(mappedBy = "occurrence", targetEntity = Comment.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<LikeDislike> likeDislikes;
 
     public Occurrence() {
         super();
     }
 
-    public Occurrence(Category category, Problem problem, String address, Neighborhood neighborhood, String description, String photo, Status status, Long views, LikeDislike likes_dislikes, User user) {
+    public Occurrence(Category category, Problem problem, String address, Neighborhood neighborhood, String description, String photo, String status, Long views, LikeDislike likes_dislikes, User user) {
         super();
         this.category = category;
         this.problem = problem;
@@ -79,7 +78,6 @@ public class Occurrence implements Serializable {
         this.photo = photo;
         this.status = status;
         this.views = views;
-        this.likes_dislikes = likes_dislikes;
         this.user = user;
     }
 
@@ -155,11 +153,11 @@ public class Occurrence implements Serializable {
         this.photo = photo;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -171,14 +169,6 @@ public class Occurrence implements Serializable {
         this.views = views;
     }
 
-    public LikeDislike getLikes_dislikes() {
-        return likes_dislikes;
-    }
-
-    public void setLikes_dislikes(LikeDislike likes_dislikes) {
-        this.likes_dislikes = likes_dislikes;
-    }
-
     public User getUser() {
         return user;
     }
@@ -186,7 +176,6 @@ public class Occurrence implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
 
     @Override
     public int hashCode() {

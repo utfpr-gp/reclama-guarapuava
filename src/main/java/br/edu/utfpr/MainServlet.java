@@ -8,7 +8,6 @@ package br.edu.utfpr;
 import br.edu.utfpr.model.Category;
 import br.edu.utfpr.model.Neighborhood;
 import br.edu.utfpr.model.Problem;
-import br.edu.utfpr.model.Status;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -193,16 +192,6 @@ public class MainServlet extends HttpServlet {
         Neighborhood n19 = new Neighborhood("Vila Bela");
         em.persist(n19);
         
-        //Cadastro Inicial de Status
-        Status st1 = new Status("Em aberto");
-        em.persist(st1);
-        Status st2 = new Status("Aguardando resolução");
-        em.persist(st2);
-        Status st3 = new Status("Não resolvido");
-        em.persist(st3);
-        Status st4 = new Status("Resolvido");
-        em.persist(st4);
-
         em.getTransaction().commit();
         //em.getTransaction().begin();
 

@@ -6,16 +6,18 @@
 package br.edu.utfpr.bean;
 
 import br.edu.utfpr.model.Comment;
+import br.edu.utfpr.model.Occurrence;
 import br.edu.utfpr.model.User;
 import br.edu.utfpr.model.service.CommentService;
+import br.edu.utfpr.model.service.OccurrenceService;
 import br.edu.utfpr.util.MessageUtil;
+import br.edu.utfpr.util.MethodsUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 
 /**
  *
@@ -24,7 +26,23 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @RequestScoped
 public class CommentBean {
+    private Comment comment;
+    private List<Comment> commentList;
+    private CommentService commentService;
 
+    /**
+     * Creates a new instance of CommentBean
+     */
+    public CommentBean() {
+    }
+
+    @PostConstruct
+    public void init() {
+        comment = new Comment();
+        commentList = new ArrayList<>();
+        commentService = new CommentService();
+    }
+    
     public Comment getComment() {
         return comment;
     }
@@ -49,47 +67,24 @@ public class CommentBean {
         this.commentService = commentService;
     }
 
-    private Comment comment;
-    private List<Comment> commentList;
-    private CommentService commentService;
-
-    /**
-     * Creates a new instance of CommentBean
-     */
-    public CommentBean() {
-    }
-
-    @PostConstruct
-    public void init() {
-        comment = new Comment();
-        commentList = new ArrayList<>();
-        commentService = new CommentService();
-    }
-
     public List<Comment> findAll() {
         return commentList = commentService.findAll();
     }
+    
+    public void reloadCommentList() {
+        commentList = commentService.findByOccurrence(getOccurrenceId());
+    }
 
     public void persist() {
-        User u = new User();
-        System.out.println("jajaja");
-        System.out.println(u.getLogin());
-        System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
-        Comment c = new Comment();
-        u.setLogin(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
-        c.setUser(u);
-        System.out.println(c.getUser().getLogin());
-        if (this.comment.getId() == null) {
-            if (commentService.save(comment)) {
-                this.commentList.add(comment);
-                MessageUtil.showMessage("Persistido com sucesso", "", FacesMessage.SEVERITY_INFO);
-            } else {
-                MessageUtil.showMessage("Por favor escolha um artista", "", FacesMessage.SEVERITY_ERROR);
-            }
+        OccurrenceService occurrenceService = new OccurrenceService();
+        Occurrence occurrence = occurrenceService.getById(getOccurrenceId());
+        comment.setOccurrence(occurrence);
+        
+        if (!commentService.save(comment)) {
+            MessageUtil.showMessage("Erro ao mentar a ocorrência", "", FacesMessage.SEVERITY_ERROR);
         } else {
-            commentService.update(comment);
+            this.commentList.add(comment);
         }
-        this.comment = new Comment();
     }
 
     public void delete(Comment comment) {
@@ -101,4 +96,7 @@ public class CommentBean {
         this.comment = new Comment();
     }
 
+    private Long getOccurrenceId() {
+        return Long.parseLong(MethodsUtil.getRequest().getParameter("id"));
+    }
 }

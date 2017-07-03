@@ -53,7 +53,7 @@
 
                 <div class="row">
                     <div class="col s12">
-                        <p:dataTable var="com" value="#{commentBean.findAll()}" paginator="false" >
+                        <p:dataTable var="com" value="#{commentBean.commentList}" paginator="false" >
 
                             <p:column headerText="Nome">
                                 <h:outputText value="#{request.remoteUser}" /> <!-- mudar se existir cadastro de usuario -->
