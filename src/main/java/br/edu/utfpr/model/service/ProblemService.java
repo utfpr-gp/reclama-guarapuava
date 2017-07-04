@@ -12,10 +12,10 @@ import br.edu.utfpr.model.dao.ProblemDAO;
  *
  * @author felipe
  */
-public class ProblemService extends AbstractService<Long, Problem>{
+public class ProblemService extends AbstractService<Long, Problem> {
 
     public ProblemService() {
         dao = new ProblemDAO();
     }
-    
+
 }

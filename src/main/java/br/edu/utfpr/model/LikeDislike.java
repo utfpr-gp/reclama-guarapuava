@@ -28,10 +28,10 @@ public class LikeDislike implements Serializable {
 
     @ManyToOne
     private Occurrence occurrence;
-    
+
     @ManyToOne
     private User user;
-    
+
     private Character like_dislike;
 
     public LikeDislike() {
@@ -44,7 +44,7 @@ public class LikeDislike implements Serializable {
         this.user = user;
         this.like_dislike = like_dislike;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -76,7 +76,7 @@ public class LikeDislike implements Serializable {
     public void setLike_dislike(Character like_dislike) {
         this.like_dislike = like_dislike;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -101,5 +101,5 @@ public class LikeDislike implements Serializable {
     public String toString() {
         return "br.edu.utfpr.model.LikeDislike[ id=" + id + " ]";
     }
-    
+
 }

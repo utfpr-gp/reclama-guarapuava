@@ -30,16 +30,16 @@ public class Category implements Serializable {
     private Long id;
 
     private String name;
-    
+
     @OneToMany(mappedBy = "category", targetEntity = Occurrence.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Occurrence> occurrences;
 
     public Category() {
         super();
     }
-    
+
     public Category(String name) {
-        super();        
+        super();
         this.name = name;
     }
 
@@ -50,7 +50,7 @@ public class Category implements Serializable {
     public void setOccurrences(Set<Occurrence> occurrences) {
         this.occurrences = occurrences;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -66,7 +66,7 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -91,5 +91,5 @@ public class Category implements Serializable {
     public String toString() {
         return "br.edu.utfpr.model.Category[ id=" + id + " ]";
     }
-    
+
 }

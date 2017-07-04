@@ -11,6 +11,6 @@ import br.edu.utfpr.model.State;
  *
  * @author felipe
  */
-public class StateDAO extends AbstractDAO<Long, State>{
-    
+public class StateDAO extends AbstractDAO<Long, State> {
+
 }

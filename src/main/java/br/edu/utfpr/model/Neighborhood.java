@@ -27,12 +27,12 @@ public class Neighborhood implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String name;
-    
+
     @OneToMany(cascade = CascadeType.REMOVE)
     private Set<Occurrence> occurrences;
-    
+
     public Neighborhood() {
         super();
     }
@@ -49,7 +49,7 @@ public class Neighborhood implements Serializable {
     public void setOccurrences(Set<Occurrence> occurrences) {
         this.occurrences = occurrences;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -65,7 +65,7 @@ public class Neighborhood implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -87,5 +87,5 @@ public class Neighborhood implements Serializable {
     public String toString() {
         return "br.edu.utfpr.model.Neighborhood[ id=" + id + " ]";
     }
-    
+
 }

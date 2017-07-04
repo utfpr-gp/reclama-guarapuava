@@ -1,50 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:p="http://primefaces.org/ui"
->
+      xmlns:pretty="http://ocpsoft.com/prettyfaces"
 
-<h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="http://fonts.googleapis.com/css?family=Roboto:200,700"  rel="stylesheet" />
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <!--IMPORT CSS PELO NOME DA LIB-->
-    <h:outputStylesheet library="css" name="application.css"/>
-    <h:outputStylesheet library="libs" name="css/materialize.min.css"/>
-    <h:outputStylesheet library="libs" name="css/font-awesome.min.css"/>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="http://fonts.googleapis.com/css?family=Roboto:200,700"  rel="stylesheet" />
 
-    <title>Reclama Guarapuava</title>
-</h:head>
+        <!--IMPORT CSS PELO NOME DA LIB-->
+        <h:outputStylesheet library="css" name="application.css"/>
+        <h:outputStylesheet library="libs" name="css/materialize.min.css"/>
+        <h:outputStylesheet library="libs" name="css/font-awesome.min.css"/>
 
-<h:body>
-    <header>
-        <nav class="blue lighten-4">
-            <div class="nav-wrapper">
-                <a href="#">
-                    <img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" />
-                </a>
-                <ul class="right">
-                </ul>
-            </div>
-        </nav>
-    </header>
+        <title>Reclama Guarapuava</title>
+    </h:head>
 
-    <main id="content">
-        <ui:insert name="content"></ui:insert>
-    </main>
-    
-    <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
-    <h:outputScript library="libs" name="js/materialize.min.js" />
-    <h:outputScript library="js" name="application.js" />
-</h:body>
+    <h:body>
+        <header>
+            <nav class="blue lighten-4">
+                <div class="nav-wrapper">
+                    <pretty:link mappingId="home">
+                        <f:view><img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" /></f:view>
+                    </pretty:link>
+
+                    <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
+                        <ul class="right">
+                            <li>
+                                <pretty:link mappingId="occurrences">
+                                    <f:view>Ocorrências</f:view>
+                                </pretty:link>
+                            </li>
+
+                            <li>
+                                <pretty:link mappingId="occurrence-record">
+                                    <f:view>Nova Ocorrência</f:view>
+                                </pretty:link>
+                            </li>
+
+                            <li>
+                                <h:form>
+                                    <h:commandLink action="#{loginBean.logoutB()}" value="Logout"></h:commandLink>
+                                </h:form>
+                            </li>
+                        </ul>
+                    </h:panelGroup>
+                </div>
+            </nav>
+        </header>
+
+        <main id="content">
+            <ui:insert name="content"></ui:insert>
+        </main>
+
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+        <h:outputScript library="libs" name="js/materialize.min.js" />
+        <h:outputScript library="js" name="application.js" />
+    </h:body>
 </html>

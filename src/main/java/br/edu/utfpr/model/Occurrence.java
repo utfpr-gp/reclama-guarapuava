@@ -31,36 +31,36 @@ public class Occurrence implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private static final String[] ALL_STATES = {"Solucionado", "Não Solucionado", "Urgente"};
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @ManyToOne
     private Category category;
-    
+
     @ManyToOne
     private Problem problem;
-    
+
     private String address;
-    
+
     @ManyToOne
     private Neighborhood neighborhood;
-    
+
     private String description;
-    
+
     private String photo;
-    
+
     private String status;
-    
+
     private Long views;
-    
+
     @ManyToOne
     private User user;
-    
+
     @OneToMany(mappedBy = "occurrence", targetEntity = Comment.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Comment> comments;
-    
+
     @OneToMany(mappedBy = "occurrence", targetEntity = Comment.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<LikeDislike> likeDislikes;
 
@@ -96,7 +96,7 @@ public class Occurrence implements Serializable {
     public void setLikeDislikes(Set<LikeDislike> likeDislikes) {
         this.likeDislikes = likeDislikes;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -201,25 +201,25 @@ public class Occurrence implements Serializable {
     public String toString() {
         return "br.edu.utfpr.model.Occurrence[ id=" + id + " ]";
     }
-    
+
     public boolean registerCategoryByid(Long categoryId) {
         CategoryService categoryService = new CategoryService();
         category = categoryService.getById(categoryId);
-        
+
         return !MethodsUtil.isNull(category);
     }
-    
+
     public boolean registerProblemByid(Long problemId) {
         ProblemService problemService = new ProblemService();
         problem = problemService.getById(problemId);
-        
+
         return !MethodsUtil.isNull(problem);
     }
-    
+
     public boolean registerNeighborhoodByid(Long neighborhoodId) {
         NeighborhoodService neighborhoodService = new NeighborhoodService();
         neighborhood = neighborhoodService.getById(neighborhoodId);
-        
+
         return !MethodsUtil.isNull(neighborhood);
     }
 }

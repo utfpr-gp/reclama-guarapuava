@@ -76,7 +76,6 @@ public class AbstractDAO<PK, T> {
                 .getResultList();
     }
 
-
     protected Class<?> getTypeClass() {
         Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass().
                 getGenericSuperclass()).getActualTypeArguments()[1];

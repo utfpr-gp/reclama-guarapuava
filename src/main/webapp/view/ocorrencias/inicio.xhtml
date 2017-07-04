@@ -6,16 +6,23 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pm="http://primefaces.org/mobile"
->
+                xmlns:pretty="http://ocpsoft.com/prettyfaces">
 
     <ui:define name="content">
         <header id="home-page-header">
             <img id="image-header" src="resources/images/gp.jpg" />
             <div id="box-action">
-                <a href="cadastrar.xhtml" class="waves-effect waves-light btn blue darken-3">
-                    <i class="fa fa-facebook-square" aria-hidden="true" />
-                    PUBLICAR UMA OCORRENCIA
-                </a>
+                <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
+                    <pretty:link mappingId="occurrence-record" class="waves-effect waves-light btn blue darken-3">
+                        <f:view>PUBLICAR UMA OCORRENCIA</f:view>
+                    </pretty:link>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{empty sessionUserBean.currentUser}">
+                    <pretty:link mappingId="sign-in" class="waves-effect waves-light btn blue darken-3">
+                        <f:view>PUBLICAR UMA OCORRENCIA</f:view>
+                    </pretty:link>
+                </h:panelGroup>
             </div>
             <div id="box-text-header" class="center-align">
             </div>
@@ -48,20 +55,20 @@
             <div class="row">
                 <div class="input-field col offset-s3 s6">
                     <h:form>
-                    <h:selectOneMenu id="neighborhoods" value="#{occurrenceBean.neighborhoodId}">
-                        <f:selectItem itemValue="" itemLabel="Selecione um Bairro"/>
-                        <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
-                        <f:ajax event="change"
-                                listener="#{occurrenceBean.byNeighborhood()}"
-                                execute="neighborhoods"
-                                render="occurrence-neighborhood"
-                        />
-                    </h:selectOneMenu>
-                    <h:outputLabel for="neighborhood">Bairro</h:outputLabel>
-            </h:form>
+                        <h:selectOneMenu id="neighborhoods" value="#{occurrenceBean.neighborhoodId}">
+                            <f:selectItem itemValue="" itemLabel="Selecione um Bairro"/>
+                            <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
+                            <f:ajax event="change"
+                                    listener="#{occurrenceBean.byNeighborhood()}"
+                                    execute="neighborhoods"
+                                    render="occurrence-neighborhood"
+                                    />
+                        </h:selectOneMenu>
+                        <h:outputLabel for="neighborhood">Bairro</h:outputLabel>
+                    </h:form>
                 </div>
             </div>
-            
+
             <h:panelGroup id="occurrence-neighborhood">
                 <div class="row">
                     <ui:repeat value="#{occurrenceBean.occurrenceList}" var="occurrence">

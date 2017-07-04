@@ -14,12 +14,12 @@ import java.util.List;
  *
  * @author felipe
  */
-public class CategoryDAO extends AbstractDAO<Long, Category>{
+public class CategoryDAO extends AbstractDAO<Long, Category> {
 
-    public List<Object[]> countOccurrences(){
+    public List<Object[]> countOccurrences() {
         this.entityManager = JPAUtil.getEntityManager();
         return entityManager.createQuery("SELECT o FROM Category c "
-                                       + "LEFT JOIN c.occurrences o", Object[].class)
-                            .getResultList();
+                + "LEFT JOIN c.occurrences o", Object[].class)
+                .getResultList();
     }
 }

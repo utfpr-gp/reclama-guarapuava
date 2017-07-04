@@ -11,6 +11,6 @@ import br.edu.utfpr.model.Problem;
  *
  * @author felipe
  */
-public class ProblemDAO extends AbstractDAO<Long, Problem>{
-    
+public class ProblemDAO extends AbstractDAO<Long, Problem> {
+
 }

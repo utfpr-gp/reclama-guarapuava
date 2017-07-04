@@ -13,8 +13,8 @@ import br.edu.utfpr.model.dao.UserDAO;
  * @author Filipe
  */
 public class UserService extends AbstractService<Long, User> {
-    
-    public UserService(){
+
+    public UserService() {
         dao = new UserDAO();
     }
 }

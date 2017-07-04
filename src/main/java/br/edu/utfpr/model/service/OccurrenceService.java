@@ -14,15 +14,15 @@ import java.util.List;
  *
  * @author felipe
  */
-public class OccurrenceService extends AbstractService<Long, Occurrence>{
+public class OccurrenceService extends AbstractService<Long, Occurrence> {
 
     public OccurrenceService() {
         dao = new OccurrenceDAO();
     }
-    
+
     public List<Occurrence> orderByNeighborhood() {
         List<Occurrence> occurrences = null;
-        
+
         try {
             JPAUtil.beginTransaction();
             occurrences = ((OccurrenceDAO) dao).orderByNeighborhood();
@@ -32,33 +32,33 @@ public class OccurrenceService extends AbstractService<Long, Occurrence>{
         } finally {
             JPAUtil.closeEntityManager();
         }
-        
+
         return occurrences;
     }
 
-    public List<Occurrence> getByNeighborhood(Long id){
+    public List<Occurrence> getByNeighborhood(Long id) {
         List<Occurrence> occurrences = null;
         try {
             JPAUtil.beginTransaction();
             occurrences = ((OccurrenceDAO) dao).occurrenceNeighboorhod(id);
             JPAUtil.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             JPAUtil.rollBack();
-        }finally {
+        } finally {
             JPAUtil.closeEntityManager();
         }
         return occurrences;
     }
 
-    public Long getTotalByCategory(Long id){
+    public Long getTotalByCategory(Long id) {
         Long total = 0L;
         try {
             JPAUtil.beginTransaction();
             total = Long.valueOf(((OccurrenceDAO) dao).occurrenceTotalCategory(id));
             JPAUtil.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             JPAUtil.rollBack();
-        }finally {
+        } finally {
             JPAUtil.closeEntityManager();
         }
         return total;

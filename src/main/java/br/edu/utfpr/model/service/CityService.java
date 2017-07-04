@@ -12,10 +12,10 @@ import br.edu.utfpr.model.dao.CityDAO;
  *
  * @author felipe
  */
-public class CityService extends AbstractService<Long, City>{
+public class CityService extends AbstractService<Long, City> {
 
     public CityService() {
         dao = new CityDAO();
     }
-    
+
 }

@@ -17,7 +17,8 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class NeighborhoodBean implements Serializable{
+public class NeighborhoodBean implements Serializable {
+
     private Neighborhood neighborhood;
     private List<Neighborhood> neighborhoodList;
     private NeighborhoodService neighborhoodService;
@@ -27,38 +28,40 @@ public class NeighborhoodBean implements Serializable{
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         neighborhood = new Neighborhood();
         neighborhoodList = new ArrayList<>();
         neighborhoodService = new NeighborhoodService();
     }
 
-    public void persist(){
-        if(this.neighborhood.getId() == null)
-            if(neighborhoodService.save(neighborhood)){
+    public void persist() {
+        if (this.neighborhood.getId() == null) {
+            if (neighborhoodService.save(neighborhood)) {
                 this.neighborhoodList.add(neighborhood);
                 MessageUtil.showMessage("Persistido com sucesso", "", FacesMessage.SEVERITY_INFO);
-            }else
+            } else {
                 MessageUtil.showMessage("Por favor escolha um artista", "", FacesMessage.SEVERITY_ERROR);
-        else
+            }
+        } else {
             neighborhoodService.update(neighborhood);
+        }
         this.neighborhood = new Neighborhood();
     }
 
-    public void edit(Neighborhood artist){
+    public void edit(Neighborhood artist) {
         this.neighborhood = artist;
     }
 
-    public void delete(Neighborhood neighborhood){
+    public void delete(Neighborhood neighborhood) {
         boolean isSuccess = neighborhoodService.delete(neighborhood);
-        if(isSuccess){
+        if (isSuccess) {
             this.neighborhoodList.remove(neighborhood);
             MessageUtil.showMessage("Removido com sucesso", "", FacesMessage.SEVERITY_INFO);
         }
         this.neighborhood = new Neighborhood();
     }
 
-    public List<Neighborhood> findAll(){
+    public List<Neighborhood> findAll() {
         return neighborhoodService.findAll();
     }
 

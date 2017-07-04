@@ -13,12 +13,12 @@ import java.util.List;
  *
  * @author felipe
  */
-public class CommentDAO extends AbstractDAO<Long, Comment>{
-    
+public class CommentDAO extends AbstractDAO<Long, Comment> {
+
     public List<Comment> findByOccurrence(Long occurrenceId) {
         this.entityManager = JPAUtil.getEntityManager();
         return entityManager.createQuery("FROM Comment c WHERE c.occurrence.id = :occurrenceId")
-                            .setParameter("occurrenceId",occurrenceId)
-                            .getResultList();
+                .setParameter("occurrenceId", occurrenceId)
+                .getResultList();
     }
 }

@@ -14,11 +14,6 @@
         <view-id value="/view/sessions/login.xhtml"/>
     </url-mapping>
 
-    <url-mapping id="register">
-        <pattern value="/register" />
-        <view-id value="/view/sessions/usuarios-cadastro.xhtml"/>
-    </url-mapping>
-
     <url-mapping id="occurrences">
         <pattern value="/ocorrencias"/>
         <view-id value="/view/ocorrencias/inicio.xhtml"/>

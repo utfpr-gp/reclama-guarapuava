@@ -14,26 +14,26 @@ import java.util.List;
  *
  * @author felipe
  */
-public class CategoryService extends AbstractService<Long, Category>{
+public class CategoryService extends AbstractService<Long, Category> {
 
     public CategoryService() {
         dao = new CategoryDAO();
     }
-    
+
     public List<Object[]> countOccurrences() {
         List<Object[]> list = null;
-        
+
         try {
             JPAUtil.beginTransaction();
             list = ((CategoryDAO) dao).countOccurrences();
             JPAUtil.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             JPAUtil.rollBack();
-        }finally {
+        } finally {
             JPAUtil.closeEntityManager();
         }
-        
+
         return list;
-    }   
-    
+    }
+
 }

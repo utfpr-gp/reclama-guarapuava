@@ -11,6 +11,6 @@ import br.edu.utfpr.model.LikeDislike;
  *
  * @author felipe
  */
-public class LikeDislikeDAO extends AbstractDAO<Long, LikeDislike>{
-    
+public class LikeDislikeDAO extends AbstractDAO<Long, LikeDislike> {
+
 }

@@ -10,7 +10,7 @@
 
     <ui:define name="content">
         <p:messages/>
-        
+
         <div class="container">
             <div class="row">
                 <h:form>
@@ -28,7 +28,7 @@
                         <h:commandButton action="#{categoryBean.persist()}" class="waves-effect waves-light btn" value="Registrar categoria"></h:commandButton>
                     </div>
 
-                    <div class="row">                     
+                    <div class="row">
                         <div class="col s12">
                             <p:dataTable var="category" value="#{categoryBean.findAll()}" paginator="true" rows="5">
 
@@ -45,9 +45,9 @@
                                         <div class="col s12 ">
                                             <h:commandLink action="#{categoryBean.edit(category)}" class="waves-effect waves-light btn blue darken-3 white-text">
                                                 <i class="material-icons">mode_edit</i>
-                                            </h:commandLink>                                    
+                                            </h:commandLink>
                                         </div>
-                                        <div class="col s12">                                    
+                                        <div class="col s12">
                                             <h:commandLink action="#{categoryBean.delete(category)}" class="waves-effect waves-light btn red darken-3 white-text">
                                                 <i class="material-icons">delete_forever</i>
                                             </h:commandLink>

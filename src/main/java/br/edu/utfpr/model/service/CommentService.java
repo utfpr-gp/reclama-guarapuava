@@ -14,12 +14,12 @@ import java.util.List;
  *
  * @author felipe
  */
-public class CommentService extends AbstractService<Long, Comment>{
+public class CommentService extends AbstractService<Long, Comment> {
 
     public CommentService() {
         dao = new CommentDAO();
     }
-    
+
     public List<Comment> findByOccurrence(Long occurrenceId) {
         List<Comment> list = null;
         try {
@@ -34,5 +34,5 @@ public class CommentService extends AbstractService<Long, Comment>{
 
         return list;
     }
-    
+
 }

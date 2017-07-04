@@ -19,7 +19,7 @@ import javax.faces.bean.RequestScoped;
  *
  * @author cabrito
  */
-@ManagedBean
+@ManagedBean(eager = true)
 @RequestScoped
 public class UserRoleBean {
 

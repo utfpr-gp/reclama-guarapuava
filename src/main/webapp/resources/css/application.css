@@ -6,112 +6,116 @@
 ***********************************************/
 /*Footer always in footer (Materialize)*/
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 /*Reset text headers*/
 h1 {
-  font-size: 2.28rem;
-  margin: 0;
+    font-size: 2.28rem;
+    margin: 0;
 }
 
 h2 {
-  font-size: 1.68rem;
-  margin: 0;
+    font-size: 1.68rem;
+    margin: 0;
 }
 
 h3 {
-  font-size: 1.58rem;
-  margin: 0;
+    font-size: 1.58rem;
+    margin: 0;
 }
 
 h4 {
-  font-size: 1.38rem;
-  margin: 0;
+    font-size: 1.38rem;
+    margin: 0;
 }
 
 h5 {
-  font-size: 1.18rem;
-  margin: 0;
+    font-size: 1.18rem;
+    margin: 0;
 }
 
 h6 {
-  font-size: 1rem;
-  margin: 0;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /**********************************************
 ************ Navbar styles ********************
 ***********************************************/
 #logo {
-  width: 100px;
+    width: 100px;
+}
+
+div.nav-wrapper ul li a {
+    color: black;
 }
 
 /**********************************************
 ************ Header styles (index path) *******
 ***********************************************/
 #home-page-header {
-  position: relative;
+    position: relative;
 }
 
 /* Image header (GP)*/
 #image-header {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
 }
 
 /* Text in header */
 #box-text-header {
-  position: absolute;
-  width: 100%;
-  bottom: 20%;
-  /*  100 * 100 / 500  */
-  font-size: x-large;
-  color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
+    /*  100 * 100 / 500  */
+    font-size: x-large;
+    color: white;
 }
 #box-text-header p {
-  margin: 0;
+    margin: 0;
 }
 
 /* action button in header */
 #box-action {
-  position: absolute;
-  bottom: 40%;
-  width: 100%;
-  padding: 0;
+    position: absolute;
+    bottom: 40%;
+    width: 100%;
+    padding: 0;
 }
 #box-action .btn {
-  margin: 0 auto;
-  display: block;
-  width: 250px;
-  padding: 0;
-  font-size: small;
+    margin: 0 auto;
+    display: block;
+    width: 250px;
+    padding: 0;
+    font-size: small;
 }
 #box-action .btn i {
-  float: left;
-  margin-left: 10px;
+    float: left;
+    margin-left: 10px;
 }
 
 /**********************************************
 ******** Index content styles (index path)*****
 ***********************************************/
 #index-content header {
-  margin-top: 20px;
-  margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Event cards */
 .event-card {
-  height: 80px;
-  border-radius: 10px;
-  margin-top: 20px;
+    height: 80px;
+    border-radius: 10px;
+    margin-top: 20px;
 
 }
 .event-card .card-body {
@@ -119,31 +123,31 @@ h6 {
 }
 
 .event-card .card-body p {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 .event-card .card-body .card-icon {
-  font-size: 40px;
+    font-size: 40px;
 }
 .event-card .card-body .card-action .box {
-  width: 40px;
-  height: 40px;
-  padding-top: 10px;
-  background-color: white;
-  border-radius: 10px;
-  float: right;
-  margin-top: 5px;
+    width: 40px;
+    height: 40px;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    float: right;
+    margin-top: 5px;
 }
 
 /**********************************************
 ************ Another styles ********************
 ***********************************************/
 .errors {
-  text-align: center !important;
-  text-transform: uppercase !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
 }
 
 .padding{
-  padding: 2% 10%!important;
+    padding: 2% 10%!important;
 }
 
 /**********************************************
@@ -160,17 +164,25 @@ h6 {
 ************ Responsive styles ****************
 ***********************************************/
 @media only screen and (max-width: 800px) {
-  #box-text-header {
-    font-size: large;
-  }
+    #box-text-header {
+        font-size: large;
+    }
 
-  .errors > img {
-    height: 50% !important;
-    width: 50% !important;
-  }
+    .errors > img {
+        height: 50% !important;
+        width: 50% !important;
+    }
 }
 @media only screen and (max-width: 380px) {
-  #box-text-header {
-    font-size: medium !important;
-  }
+    #box-text-header {
+        font-size: medium !important;
+    }
+}
+
+.center-fix{
+    margin-left: 15em !important;
+}
+
+.margin-fix{
+    margin-right: 1em !important;
 }

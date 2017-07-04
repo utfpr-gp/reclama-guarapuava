@@ -11,13 +11,13 @@ $secondary-color: #4fc3f7;
 
 /*Footer always in footer (Materialize)*/
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 /*Reset text headers*/
@@ -34,7 +34,7 @@ h6 {font-size: 1rem;margin: 0;}
 ***********************************************/
 
 #logo {
-  width: 100px;
+    width: 100px;
 }
 
 /**********************************************
@@ -42,88 +42,88 @@ h6 {font-size: 1rem;margin: 0;}
 ***********************************************/
 
 #home-page-header {
-  position: relative;
+    position: relative;
 }
 
 /* Image header (GP)*/
 
 #image-header {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
 }
 
 /* Text in header */
 
 #box-text-header {
-  position: absolute;
-  width: 100%;
-  bottom: 20%; /*  100 * 100 / 500  */
-  font-size: x-large;
-  color: $primary-color;
-  p {
-    margin: 0;
-  }
+    position: absolute;
+    width: 100%;
+    bottom: 20%; /*  100 * 100 / 500  */
+    font-size: x-large;
+    color: $primary-color;
+    p {
+        margin: 0;
+    }
 }
 /* action button in header */
 
 #box-action {
-  position: absolute;
-  bottom: 40%;
-  width: 100%;
-  padding: 0;
-  .btn {
-    margin: 0 auto;
-    display: block;
-    width: 250px;
+    position: absolute;
+    bottom: 40%;
+    width: 100%;
     padding: 0;
-    font-size: small;
-    i {
-      float: left;
-      margin-left: 10px;
+    .btn {
+        margin: 0 auto;
+        display: block;
+        width: 250px;
+        padding: 0;
+        font-size: small;
+        i {
+            float: left;
+            margin-left: 10px;
+        }
     }
-  }
 }
 /**********************************************
 ******** Index content styles (index path)*****
 ***********************************************/
 
 #index-content header {
-  margin-top: 20px;
-  margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Event cards */
 
 .event-card {
-  height: 80px;
-  border-radius: 10px;
+    height: 80px;
+    border-radius: 10px;
 
-  .card-body {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    p {
-      margin: 0;
+    .card-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        p {
+            margin: 0;
+        }
+        .card-icon {
+            font-size: 40px;
+        }
+        .card-action .box {
+            width: 40px;
+            height: 40px;
+            padding-top: 10px;
+            background-color: $primary-color;
+            border-radius: 10px;
+            float: right;
+        }
     }
-    .card-icon {
-      font-size: 40px;
-    }
-    .card-action .box {
-      width: 40px;
-      height: 40px;
-      padding-top: 10px;
-      background-color: $primary-color;
-      border-radius: 10px;
-      float: right;
-    }
-  }
 }
 /**********************************************
 ************ Another styles ********************
 ***********************************************/
 .errors{
-  text-align: center!important;
-  text-transform: uppercase!important;
+    text-align: center!important;
+    text-transform: uppercase!important;
 }
 
 /**********************************************
@@ -131,17 +131,17 @@ h6 {font-size: 1rem;margin: 0;}
 ***********************************************/
 
 @media only screen and (max-width: 800px) {
-  #box-text-header {
-    font-size: large;
-  }
-  .errors > img {
-    height: 50% !important;
-    width: 50% !important;
-  }
+    #box-text-header {
+        font-size: large;
+    }
+    .errors > img {
+        height: 50% !important;
+        width: 50% !important;
+    }
 }
 
 @media only screen and (max-width: 380px) {
-  #box-text-header {
-    font-size: medium !important;
-  }
+    #box-text-header {
+        font-size: medium !important;
+    }
 }

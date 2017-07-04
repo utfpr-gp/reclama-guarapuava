@@ -12,10 +12,10 @@ import br.edu.utfpr.model.dao.NeighborhoodDAO;
  *
  * @author felipe
  */
-public class NeighborhoodService extends AbstractService<Long, Neighborhood>{
+public class NeighborhoodService extends AbstractService<Long, Neighborhood> {
 
     public NeighborhoodService() {
         dao = new NeighborhoodDAO();
     }
-    
+
 }

@@ -6,37 +6,37 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pm="http://primefaces.org/mobile"
->
+                >
 
     <ui:define name="content">
         <div class="container">
             <h:form>
-            <div class="row">
-                <div class="input-field col s12">
-                    <h:selectOneMenu styleClass="browser-default" id="neighborhood-occurrence">
-                        <f:selectItem itemValue="" itemLabel="Selecione um Bairro"/>
-                        <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
-                    </h:selectOneMenu>
-                    <label for="neighborhood-occurrence" class="active">Bairros</label>
-                </div>
-
                 <div class="row">
-                    <div class="col s12 m6">
+                    <div class="input-field col s12">
+                        <h:selectOneMenu styleClass="browser-default" id="neighborhood-occurrence">
+                            <f:selectItem itemValue="" itemLabel="Selecione um Bairro"/>
+                            <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
+                        </h:selectOneMenu>
+                        <label for="neighborhood-occurrence" class="active">Bairros</label>
+                    </div>
 
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="http://lorempixel.com/100/100/"/>
-                                <span class="card-title">Card Title</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    <div class="row">
+                        <div class="col s12 m6">
+
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="http://lorempixel.com/100/100/"/>
+                                    <span class="card-title">Card Title</span>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                            </div>
+
                         </div>
-
                     </div>
                 </div>
-            </div>
             </h:form>
         </div>
     </ui:define>

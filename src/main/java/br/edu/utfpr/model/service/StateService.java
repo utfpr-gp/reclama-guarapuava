@@ -12,10 +12,10 @@ import br.edu.utfpr.model.dao.StateDAO;
  *
  * @author felipe
  */
-public class StateService extends AbstractService<Long, State>{
+public class StateService extends AbstractService<Long, State> {
 
     public StateService() {
         dao = new StateDAO();
     }
-    
+
 }

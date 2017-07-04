@@ -18,6 +18,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 /**
@@ -32,6 +33,9 @@ public class UserBean {
     private List<User> userList;
     private UserService userService;
     private Long cityId;
+
+    @ManagedProperty(value = "#{userRoleBean}")
+    private UserRoleBean userRoleBean;
 
     public UserBean() {
     }
@@ -81,6 +85,14 @@ public class UserBean {
         this.cityId = cityId;
     }
 
+    public UserRoleBean getUserRoleBean() {
+        return userRoleBean;
+    }
+
+    public void setUserRoleBean(UserRoleBean userRoleBean) {
+        this.userRoleBean = userRoleBean;
+    }
+
     public void edit(User user) {
         this.user = user;
     }
@@ -105,10 +117,9 @@ public class UserBean {
             user.setPassword(passwordMd5);
             if (userService.save(user)) {
                 this.userList.add(user);
-                UserRoleBean uR = new UserRoleBean();
-                uR.getUserRole().setLogin(user.getLogin());
-                uR.getUserRole().setRole("USER");
-                uR.persist();
+                userRoleBean.getUserRole().setLogin(user.getLogin());
+                userRoleBean.getUserRole().setRole("USER");
+                userRoleBean.persist();
                 MessageUtil.showMessage("Cadastrado com sucesso", "", FacesMessage.SEVERITY_INFO);
             } else {
                 MessageUtil.showMessage("Falha ao cadastrar", "", FacesMessage.SEVERITY_ERROR);

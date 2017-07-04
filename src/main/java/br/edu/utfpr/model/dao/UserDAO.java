@@ -11,6 +11,6 @@ import br.edu.utfpr.model.User;
  *
  * @author Filipe
  */
-public class UserDAO extends AbstractDAO<Long, User>{
-    
+public class UserDAO extends AbstractDAO<Long, User> {
+
 }

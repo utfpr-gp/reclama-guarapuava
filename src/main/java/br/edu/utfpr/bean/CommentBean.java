@@ -7,7 +7,6 @@ package br.edu.utfpr.bean;
 
 import br.edu.utfpr.model.Comment;
 import br.edu.utfpr.model.Occurrence;
-import br.edu.utfpr.model.User;
 import br.edu.utfpr.model.service.CommentService;
 import br.edu.utfpr.model.service.OccurrenceService;
 import br.edu.utfpr.util.MessageUtil;
@@ -17,6 +16,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 /**
@@ -26,9 +26,13 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class CommentBean {
+
     private Comment comment;
     private List<Comment> commentList;
     private CommentService commentService;
+
+    @ManagedProperty(value = "#{sessionUserBean}")
+    private SessionUserBean sessionUserBean;
 
     /**
      * Creates a new instance of CommentBean
@@ -42,7 +46,7 @@ public class CommentBean {
         commentList = new ArrayList<>();
         commentService = new CommentService();
     }
-    
+
     public Comment getComment() {
         return comment;
     }
@@ -70,7 +74,7 @@ public class CommentBean {
     public List<Comment> findAll() {
         return commentList = commentService.findAll();
     }
-    
+
     public void reloadCommentList() {
         commentList = commentService.findByOccurrence(getOccurrenceId());
     }
@@ -79,7 +83,8 @@ public class CommentBean {
         OccurrenceService occurrenceService = new OccurrenceService();
         Occurrence occurrence = occurrenceService.getById(getOccurrenceId());
         comment.setOccurrence(occurrence);
-        
+        comment.setUser(sessionUserBean.getCurrentUser());
+
         if (!commentService.save(comment)) {
             MessageUtil.showMessage("Erro ao mentar a ocorrência", "", FacesMessage.SEVERITY_ERROR);
         } else {
@@ -98,5 +103,9 @@ public class CommentBean {
 
     private Long getOccurrenceId() {
         return Long.parseLong(MethodsUtil.getRequest().getParameter("id"));
+    }
+
+    public void setSessionUserBean(SessionUserBean sessionUserBean) {
+        this.sessionUserBean = sessionUserBean;
     }
 }

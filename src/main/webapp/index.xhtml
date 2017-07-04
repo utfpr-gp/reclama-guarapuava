@@ -6,16 +6,22 @@
                 xmlns:jsf="http://xmlns.jcp.org/jsf"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pretty="http://ocpsoft.com/prettyfaces">
->
-
     <ui:define name="content">
         <header id="home-page-header">
             <img id="image-header" src="resources/images/gp.jpg" />
 
             <div id="box-action">
-                <pretty:link mappingId="sign-in" class="waves-effect waves-light btn blue darken-3">
-                    <f:view>PUBLICAR UMA OCORRENCIA</f:view>
-                </pretty:link>
+                <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
+                    <pretty:link mappingId="occurrence-record" class="waves-effect waves-light btn blue darken-3">
+                        <f:view>PUBLICAR UMA OCORRENCIA</f:view>
+                    </pretty:link>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{empty sessionUserBean.currentUser}">
+                    <pretty:link mappingId="sign-in" class="waves-effect waves-light btn blue darken-3">
+                        <f:view>PUBLICAR UMA OCORRENCIA</f:view>
+                    </pretty:link>
+                </h:panelGroup>
             </div>
 
             <div id="box-text-header" class="center-align">
@@ -23,7 +29,7 @@
                 <p>Entre e nos conte o problema que você identificou</p>
             </div>
         </header>
-        
+
         <p:messages></p:messages>
 
         <article id="index-content" class="container">
@@ -55,7 +61,7 @@
             </div>
             <div class="row">
                 <ui:repeat value="#{categoryBean.findAll()}" var="category">
-                    
+
                     <div class="col s12 m6">
                         <div class="event-card green darken-1">
                             <div class="container card-body">
@@ -72,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </ui:repeat>
             </div>
         </article>

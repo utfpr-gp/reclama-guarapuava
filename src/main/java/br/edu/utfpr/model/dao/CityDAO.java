@@ -11,6 +11,6 @@ import br.edu.utfpr.model.City;
  *
  * @author felipe
  */
-public class CityDAO extends AbstractDAO<Long, City>{
-    
+public class CityDAO extends AbstractDAO<Long, City> {
+
 }

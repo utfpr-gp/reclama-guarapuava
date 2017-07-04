@@ -26,16 +26,16 @@ public class Problem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String name;
-    
+
     @OneToMany
     private Set<Occurrence> occurences;
-    
+
     public Problem() {
         super();
     }
-    
+
     public Problem(String name) {
         super();
         this.name = name;
@@ -48,7 +48,7 @@ public class Problem implements Serializable {
     public void setOccurences(Set<Occurrence> occurences) {
         this.occurences = occurences;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -64,7 +64,7 @@ public class Problem implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -89,5 +89,5 @@ public class Problem implements Serializable {
     public String toString() {
         return "br.edu.utfpr.model.Problem[ id=" + id + " ]";
     }
-    
+
 }

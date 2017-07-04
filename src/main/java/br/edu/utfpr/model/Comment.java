@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -26,26 +26,26 @@ public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @ManyToOne
     private User user;
-    
+
     private String description;
-    
+
     @ManyToOne
     private Occurrence occurrence;
-    
+
     public Comment() {
         super();
     }
-    
+
     public Comment(User user, String description, Occurrence occurrence) {
         super();
         this.user = user;
         this.description = description;
         this.occurrence = occurrence;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -77,7 +77,6 @@ public class Comment implements Serializable {
     public void setOccurrence(Occurrence occurrence) {
         this.occurrence = occurrence;
     }
-    
 
     @Override
     public int hashCode() {
@@ -103,5 +102,5 @@ public class Comment implements Serializable {
     public String toString() {
         return "br.edu.utfpr.model.Comment[ id=" + id + " ]";
     }
-    
+
 }

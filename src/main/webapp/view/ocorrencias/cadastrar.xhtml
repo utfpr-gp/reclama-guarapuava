@@ -9,59 +9,59 @@
 
     <ui:define name="content">
         <p:messages></p:messages>
-        
+
         <div class="container">
             <div class="row">
-                
+
                 <h:form class="col s12">
                     <h2 style="text-align: center">Nos conte o problema</h2>
                     <p style="text-align: center">Quanto mais informações mais rapido o problema será resolvido</p>
-                    
+
                     <div class="row">
                         <div class="input-field col s12">
                             <h:selectOneMenu id="occurrence-category" value="#{occurrenceBean.categoryId}">
                                 <f:selectItem itemValue="" itemLabel="Selecione uma categoria"></f:selectItem>
                                 <f:selectItems var="category" value="#{categoryBean.findAll()}" itemValue="#{category.id}" itemLabel="#{category.name}"/>
                             </h:selectOneMenu>
-                            
+
                             <h:outputLabel for="occurrence-category">Categoria</h:outputLabel>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="input-field col s12">
                             <h:selectOneMenu id="occurrence-problem" value="#{occurrenceBean.problemId}">
                                 <f:selectItem itemValue="" itemLabel="Selecione um problema"></f:selectItem>
                                 <f:selectItems var="problem" value="#{problemBean.findAll()}" itemValue="#{problem.id}" itemLabel="#{problem.name}"/>
                             </h:selectOneMenu>
-                            
+
                             <h:outputLabel for="occurrence-problem">Informe o problema</h:outputLabel>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="input-field col s6">
                             <h:inputText id="occurrence-address" value="#{occurrenceBean.occurrence.address}"></h:inputText>
                             <h:outputLabel for="occurrence-address">Informe o endereço da ocorrência</h:outputLabel>
                         </div>
-                        
+
                         <div class="input-field col s6">
                             <h:selectOneMenu id="occurrence-neighborhood" value="#{occurrenceBean.neighborhoodId}">
                                 <f:selectItem itemValue="" itemLabel="Selecione um Bairro"></f:selectItem>
                                 <f:selectItems var="neighborhood" value="#{neighborhoodBean.findAll()}" itemValue="#{neighborhood.id}" itemLabel="#{neighborhood.name}"/>
                             </h:selectOneMenu>
-                            
+
                             <h:outputLabel for="occurrence-neighborhood">Bairro</h:outputLabel>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="input-field col s12">
                             <h:inputTextarea id="occurrence-description" class="materialize-textarea" value="#{occurrenceBean.occurrence.description}"></h:inputTextarea>
                             <h:outputLabel for="occurrence-description">Descreva o problema</h:outputLabel>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="file-field input-field">
                             <div class="btn">
@@ -73,15 +73,15 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="center">
                         <h:commandButton action="#{occurrenceBean.persist()}" value="Publicar" class="waves-effect waves-light btn"></h:commandButton>
                     </div>
-                    
+
                 </h:form><!--h:form -->
             </div><!-- div.row -->
         </div><!--div.container-->
-        
+
     </ui:define>
 
 </ui:composition>

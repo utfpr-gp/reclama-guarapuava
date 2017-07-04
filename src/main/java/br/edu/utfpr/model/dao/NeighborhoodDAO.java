@@ -11,6 +11,6 @@ import br.edu.utfpr.model.Neighborhood;
  *
  * @author felipe
  */
-public class NeighborhoodDAO extends AbstractDAO<Long, Neighborhood>{
-    
+public class NeighborhoodDAO extends AbstractDAO<Long, Neighborhood> {
+
 }

@@ -42,7 +42,7 @@ public class CategoryBean {
     public void edit(Category category) {
         this.category = category;
     }
-    
+
     public Category getCategory() {
         return category;
     }

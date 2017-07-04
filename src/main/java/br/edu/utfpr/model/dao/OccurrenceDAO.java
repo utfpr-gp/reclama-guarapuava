@@ -13,26 +13,26 @@ import java.util.List;
  *
  * @author felipe
  */
-public class OccurrenceDAO extends AbstractDAO<Long, Occurrence>{
-    
+public class OccurrenceDAO extends AbstractDAO<Long, Occurrence> {
+
     public List<Occurrence> orderByNeighborhood() {
         this.entityManager = JPAUtil.getEntityManager();
-        
+
         return entityManager.createQuery("SELECT o FROM Occurrence o"
-                                        + " JOIN o.neighborhood n ORDER BY n.name")
+                + " JOIN o.neighborhood n ORDER BY n.name")
                 .getResultList();
     }
 
-    public int occurrenceTotalCategory(Long id_category){
+    public int occurrenceTotalCategory(Long id_category) {
         this.entityManager = JPAUtil.getEntityManager();
         return entityManager.createQuery("select count(o) from Occurrence o where o.category = :param")
-                .setParameter("param",id_category)
+                .setParameter("param", id_category)
                 .getMaxResults();
     }
 
-    public List<Occurrence> occurrenceNeighboorhod(Long id_neghborhood){
+    public List<Occurrence> occurrenceNeighboorhod(Long id_neghborhood) {
         this.entityManager = JPAUtil.getEntityManager();
-        return  this.entityManager.createQuery(" select o from "+"Occurrence "+" o where o.neighborhood.id = :param")
+        return this.entityManager.createQuery(" select o from " + "Occurrence " + " o where o.neighborhood.id = :param")
                 .setParameter("param", id_neghborhood)
                 .getResultList();
 

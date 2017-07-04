@@ -48,14 +48,14 @@ public class LoginBean implements Serializable {
     public String onClickLogar() {
         FacesContext fc = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
-        
+
         try {
             HttpServletRequest request = (HttpServletRequest) FacesContext.
                     getCurrentInstance().getExternalContext().getRequest();
-            
+
             request.login(this.usuario, this.senha);
-            
-            return PAGINA_INDEX;
+
+            return "pretty:occurrences";
         } catch (ServletException e) {
             System.out.println(e);
         } finally {

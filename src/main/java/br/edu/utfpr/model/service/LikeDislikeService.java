@@ -12,10 +12,10 @@ import br.edu.utfpr.model.dao.LikeDislikeDAO;
  *
  * @author felipe
  */
-public class LikeDislikeService extends AbstractService<Long, LikeDislike>{
+public class LikeDislikeService extends AbstractService<Long, LikeDislike> {
 
     public LikeDislikeService() {
         dao = new LikeDislikeDAO();
     }
-    
+
 }
