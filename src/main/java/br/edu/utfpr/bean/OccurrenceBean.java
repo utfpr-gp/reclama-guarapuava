@@ -134,7 +134,7 @@ public class OccurrenceBean {
     public void loadOccurrence() {
         HttpServletRequest request = MethodsUtil.getRequest();
         Long id = Long.parseLong(request.getParameter("id"));
-
+        occurrenceViews();
         setOccurrence(occurrenceService.getById(id));
     }
 
@@ -196,5 +196,12 @@ public class OccurrenceBean {
         }
 
         return false;
+    }
+
+    public void occurrenceViews(){
+        Long newValue = new Long(1);
+        newValue = Long.sum(newValue, this.occurrence.getViews());
+        this.occurrence.setViews(newValue);
+        occurrenceService.update(this.occurrence);
     }
 }

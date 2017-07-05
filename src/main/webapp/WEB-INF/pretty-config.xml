@@ -13,6 +13,10 @@
         <pattern value="/login" />
         <view-id value="/view/sessions/login.xhtml"/>
     </url-mapping>
+    <url-mapping id="sign-up">
+        <pattern value="/cadastre-se"/>
+        <view-id value="/view/sessions/usuarios-cadastro.xhtml"/>
+    </url-mapping>
 
     <url-mapping id="occurrences">
         <pattern value="/ocorrencias"/>
