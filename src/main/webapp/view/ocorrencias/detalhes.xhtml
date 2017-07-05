@@ -24,6 +24,15 @@
                             <p>#{occurrenceBean.occurrence.description}</p>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col s4 l4 offset-s5">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="http://lorempixel.com/400/400/city/"/>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="col s6 panel-occurrence">
                         <div class="card-panel">
@@ -63,6 +72,16 @@
 
                             <p:column headerText="Comentario">
                                 <h:outputText value="#{com.description}" />
+                            </p:column>
+
+                            <p:column headerText="">
+                                <div class="row center">
+                                    <div class="col s12">
+                                        <h:commandLink action="#{commentBean.delete(com)}" class="waves-effect waves-light btn red darken-3 white-text">
+                                            <i class="material-icons">delete_forever</i>
+                                        </h:commandLink>
+                                    </div>
+                                </div>
                             </p:column>
                         </p:dataTable>
                     </div>

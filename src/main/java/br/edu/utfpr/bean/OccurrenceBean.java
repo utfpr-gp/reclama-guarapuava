@@ -134,8 +134,9 @@ public class OccurrenceBean {
     public void loadOccurrence() {
         HttpServletRequest request = MethodsUtil.getRequest();
         Long id = Long.parseLong(request.getParameter("id"));
-        occurrenceViews();
+
         setOccurrence(occurrenceService.getById(id));
+        //occurrenceViews();
     }
 
     public void resetAttrs() {
@@ -180,7 +181,6 @@ public class OccurrenceBean {
 
             if (occurrenceService.save(occurrence)) {
                 MessageUtil.showMessage("Ocorrência registrada com sucesso", "", FacesMessage.SEVERITY_INFO);
-
                 occurrenceList.add(occurrence);
                 logOccurrenceRecord();
                 return true;
@@ -190,7 +190,6 @@ public class OccurrenceBean {
 
             if (occurrenceService.update(occurrence)) {
                 MessageUtil.showMessage("Ocorrência atualizada com sucesso", "", FacesMessage.SEVERITY_INFO);
-
                 return true;
             }
         }
@@ -201,7 +200,7 @@ public class OccurrenceBean {
     public void occurrenceViews(){
         Long newValue = new Long(1);
         newValue = Long.sum(newValue, this.occurrence.getViews());
-        this.occurrence.setViews(newValue);
-        occurrenceService.update(this.occurrence);
+        getOccurrence().setViews(newValue);
+        occurrenceService.update(getOccurrence());
     }
 }
