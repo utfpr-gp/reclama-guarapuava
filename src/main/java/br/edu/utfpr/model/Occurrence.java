@@ -53,7 +53,7 @@ public class Occurrence implements Serializable {
 
     private String status;
 
-    private Long views;
+    private long views;
 
     @ManyToOne
     private User user;
@@ -79,6 +79,11 @@ public class Occurrence implements Serializable {
         this.status = status;
         this.views = views;
         this.user = user;
+    }
+
+
+    public long getViews() {
+        return views;
     }
 
     public Set<Comment> getComments() {
@@ -161,13 +166,8 @@ public class Occurrence implements Serializable {
         this.status = status;
     }
 
-    public Long getViews() {
-        return views;
-    }
 
-    public void setViews(Long views) {
-        this.views = views;
-    }
+
 
     public User getUser() {
         return user;
@@ -184,6 +184,10 @@ public class Occurrence implements Serializable {
         return hash;
     }
 
+    public void setViews(long views) {
+        this.views = views;
+    }
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -191,10 +195,7 @@ public class Occurrence implements Serializable {
             return false;
         }
         Occurrence other = (Occurrence) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override

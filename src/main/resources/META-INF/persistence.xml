@@ -23,7 +23,6 @@
             <!-- create - executa na criação - update - executa na consulta -->
             <!-- property name="hibernate.hbm2ddl.auto" value="create" /-->
             <!-- javax.persistence.schema-generation.database.action : for database action, values are "none", "create", "drop-and-create", "drop". -->
-            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/-->
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>

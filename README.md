@@ -30,6 +30,7 @@ MYSQL
 * [NetBeans 8.2](https://netbeans.org/) - The IDE used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Hibernate](http://hibernate.org/) - Relational-Object Mapping Framework
+* [Intellij IDEA Ultimate](https://www.jetbrains.com/idea/?fromMenu) - another IDE used
 
 ## Authors
 
