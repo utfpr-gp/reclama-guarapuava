@@ -4,8 +4,7 @@
            driverName="com.mysql.jdbc.Driver"
            connectionURL="jdbc:mysql://localhost:3306/reclama_guarapuava_db"
            connectionName="root"
-           connectionPassword="3660"
-           digest="MD5"
+           connectionPassword="qwerty"
 
            userTable="user"
            userNameCol="login"
@@ -13,5 +12,9 @@
 
            userRoleTable="user_role"
            roleNameCol="role">
+        <CredentialHandler
+            className="org.apache.catalina.realm.MessageDigestCredentialHandler"
+            algorithm="MD5" />
     </Realm>
+
 </Context>
