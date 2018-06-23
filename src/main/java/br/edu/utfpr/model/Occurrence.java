@@ -68,6 +68,16 @@ public class Occurrence implements Serializable {
         super();
     }
 
+    public Occurrence(Category category, Problem problem, String address, Neighborhood neighborhood, String description, String status, User user) {
+        this.category = category;
+        this.problem = problem;
+        this.address = address;
+        this.neighborhood = neighborhood;
+        this.description = description;
+        this.status = status;
+        this.user = user;
+    }
+
     public Occurrence(Category category, Problem problem, String address, Neighborhood neighborhood, String description, String photo, String status, Long views, LikeDislike likes_dislikes, User user) {
         super();
         this.category = category;
@@ -80,7 +90,6 @@ public class Occurrence implements Serializable {
         this.views = views;
         this.user = user;
     }
-
 
     public long getViews() {
         return views;
@@ -165,9 +174,6 @@ public class Occurrence implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-
-
-
 
     public User getUser() {
         return user;

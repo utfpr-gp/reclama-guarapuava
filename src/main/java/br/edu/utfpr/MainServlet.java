@@ -7,6 +7,7 @@ package br.edu.utfpr;
 
 import br.edu.utfpr.model.Category;
 import br.edu.utfpr.model.Neighborhood;
+import br.edu.utfpr.model.Occurrence;
 import br.edu.utfpr.model.Problem;
 import br.edu.utfpr.model.User;
 import br.edu.utfpr.model.UserRole;
@@ -188,6 +189,8 @@ public class MainServlet extends HttpServlet {
         em.persist(n18);
         Neighborhood n19 = new Neighborhood("Vila Bela");
         em.persist(n19);
+        Neighborhood n20 = new Neighborhood("Centro");
+        em.persist(n20);
 
         User admin = new User("admin", "admin@admin.com", "admin", "e10adc3949ba59abbe56e057f20f883e", null);
         em.persist(admin);
@@ -213,8 +216,53 @@ public class MainServlet extends HttpServlet {
         UserRole user3Role = new UserRole("luiz", "USER");
         em.persist(user3Role);
 
+        Occurrence o1 = new Occurrence(c1, p44, "Rua 01", n19, "descrição 01", "Status 01", user2);
+        em.persist(o1);
+
+        Occurrence o2 = new Occurrence(c2, p12, "Rua 02", n20, "descrição 02", "Status 02", user2);
+        em.persist(o2);
+
+        Occurrence o3 = new Occurrence(c3, p25, "Rua 03", n20, "descrição 03", "Status 03", user1);
+        em.persist(o3);
+
+        Occurrence o4 = new Occurrence(c4, p13, "Rua 04", n19, "descrição 04", "Status 04", user3);
+        em.persist(o4);
+
+        Occurrence o5 = new Occurrence(c5, p4, "Rua 05", n11, "descrição 05", "Status 05", user3);
+        em.persist(o5);
+
+        Occurrence o6 = new Occurrence(c6, p8, "Rua 05", n12, "descrição 06", "Status 06", user2);
+        em.persist(o6);
+
+        Occurrence o7 = new Occurrence(c7, p23, "Rua 06", n13, "descrição 07", "Status 07", user3);
+        em.persist(o7);
+
+        Occurrence o8 = new Occurrence(c8, p35, "Rua 07", n14, "descrição 08", "Status 08", user1);
+        em.persist(o8);
+
+        Occurrence o9 = new Occurrence(c9, p22, "Rua 08", n20, "descrição 09", "Status 09", user1);
+        em.persist(o9);
+
+        Occurrence o10 = new Occurrence(c1, p31, "Rua 09", n20, "descrição 10", "Status 10", user3);
+        em.persist(o10);
+
+        Occurrence o11 = new Occurrence(c2, p15, "Rua 10", n17, "descrição 11", "Status 11", user2);
+        em.persist(o1);
+
+        Occurrence o12 = new Occurrence(c3, p10, "Rua 11", n17, "descrição 12", "Status 12", user3);
+        em.persist(o12);
+
+        Occurrence o13 = new Occurrence(c4, p5, "Rua 12", n20, "descrição 13", "Status 13", user2);
+        em.persist(o13);
+
+        Occurrence o14 = new Occurrence(c5, p4, "Rua 13", n12, "descrição 14", "Status 14", user1);
+        em.persist(o14);
+
+        Occurrence o15 = new Occurrence(c6, p3, "Rua 14", n20, "descrição 15", "Status 15", user3);
+        em.persist(o15);
+
         em.getTransaction().commit();
-        //em.getTransaction().begin();
+
         em.close();
     }
 
