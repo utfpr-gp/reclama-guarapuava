@@ -39,6 +39,12 @@
                     <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
                         <ul class="right">
                             <li>
+                                <pretty:link mappingId="my-occurrences">
+                                    <f:view>Minhas Ocorrências</f:view>
+                                </pretty:link>
+                            </li>
+
+                            <li>
                                 <pretty:link mappingId="occurrences">
                                     <f:view>Ocorrências</f:view>
                                 </pretty:link>

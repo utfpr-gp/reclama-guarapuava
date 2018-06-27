@@ -24,6 +24,11 @@
         <view-id value="/view/ocorrencias/inicio.xhtml"/>
     </url-mapping>
 
+    <url-mapping id="my-occurrences">
+        <pattern value="/minhas-ocorrencias"/>
+        <view-id value="/view/ocorrencias/minhas-ocorrencias.xhtml"/>
+    </url-mapping>
+
     <url-mapping id="occurrence-neighborhood">
         <pattern value="/ocorrencias/bairros"/>
         <view-id value="/view/bairros/ocorrencias-por-bairro.xhtml"/>
@@ -43,25 +48,25 @@
     </url-mapping>
 
     <!--=========== ROTAS ADMIN =============-->
-    <!--<url-mapping id="admin-new-problem">-->
-        <!--<pattern value="/admin/problemas/novo"/>-->
-        <!--<view-id value="/view/admin/problemas-cadastro.xhtml"/>-->
-    <!--</url-mapping>-->
+<!--    <url-mapping id="admin-new-problem">
+        <pattern value="/admin/problemas/novo"/>
+        <view-id value="/view/admin/problemas-cadastro.xhtml"/>
+    </url-mapping>
 
-    <!--<url-mapping id="admin-new-category">-->
-        <!--<pattern value="/admin/categorias/novo"/>-->
-        <!--<view-id value="/view/admin/categorias-cadastro.xhtml"/>-->
-    <!--</url-mapping>-->
+    <url-mapping id="admin-new-category">
+        <pattern value="/admin/categorias/novo"/>
+        <view-id value="/view/admin/categorias-cadastro.xhtml"/>
+    </url-mapping>
 
-    <!--<url-mapping id="admin-new-neighborhood">-->
-        <!--<pattern value="/admin/bairros/novo"/>-->
-        <!--<view-id value="/view/admin/bairros-cadastro.xhtml"/>-->
-    <!--</url-mapping>-->
+    <url-mapping id="admin-new-neighborhood">
+        <pattern value="/admin/bairros/novo"/>
+        <view-id value="/view/admin/bairros-cadastro.xhtml"/>
+    </url-mapping>
 
-    <!--<url-mapping id="admin-list-occurrences">-->
-        <!--<pattern value="/admin/ocorrencias"/>-->
-        <!--<view-id value="/view/admin/ocorrencias.xhtml"/>-->
-    <!--</url-mapping>-->
+    <url-mapping id="admin-list-occurrences">
+        <pattern value="/admin/ocorrencias"/>
+        <view-id value="/view/admin/ocorrencias.xhtml"/>
+    </url-mapping>-->
     <!--=========== ROTAS ADMIN =============-->
 
     <!--=========== ROTAS DE ERRO =============-->

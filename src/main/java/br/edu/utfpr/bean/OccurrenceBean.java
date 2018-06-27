@@ -120,6 +120,10 @@ public class OccurrenceBean {
         return occurrenceList = occurrenceService.findAll();
     }
 
+    public List<Occurrence> findByUser() {
+        return occurrenceList = occurrenceService.getByUser(sessionUserBean.getCurrentUser().getId());
+    }
+
     public void delete(Occurrence occurrence) {
         boolean isSuccess = occurrenceService.delete(occurrence);
         if (isSuccess) {
@@ -198,9 +202,9 @@ public class OccurrenceBean {
         return false;
     }
 
-    public void occurrenceViews(){
-       long atual =  this.occurrence.getViews();
-        atual+=1;
+    public void occurrenceViews() {
+        long atual = this.occurrence.getViews();
+        atual += 1;
         getOccurrence().setViews(atual);
         occurrenceService.update(getOccurrence());
     }
