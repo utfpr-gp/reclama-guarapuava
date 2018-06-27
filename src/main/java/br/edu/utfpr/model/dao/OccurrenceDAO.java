@@ -8,6 +8,7 @@ package br.edu.utfpr.model.dao;
 import br.edu.utfpr.model.Occurrence;
 import br.edu.utfpr.util.JPAUtil;
 import java.util.List;
+import javax.persistence.Query;
 
 /**
  *
@@ -35,6 +36,13 @@ public class OccurrenceDAO extends AbstractDAO<Long, Occurrence> {
         return this.entityManager.createQuery(" select o from " + "Occurrence " + " o where o.neighborhood.id = :param")
                 .setParameter("param", id_neghborhood)
                 .getResultList();
-
     }
+
+    public List<Occurrence> occurrenceUser(Long id_user) {
+        this.entityManager = JPAUtil.getEntityManager();
+        return this.entityManager.createQuery(" select o from " + "Occurrence " + " o where o.user.id = :param")
+                .setParameter("param", id_user)
+                .getResultList();
+    }
+
 }

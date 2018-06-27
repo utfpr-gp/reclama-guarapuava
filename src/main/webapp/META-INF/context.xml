@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/reclama-guarapuava">
-    <Realm className="org.apache.catalina.realm.JDBCRealm"
-           driverName="com.mysql.jdbc.Driver"
-           connectionURL="jdbc:mysql://localhost:3306/reclama_guarapuava_db"
-           connectionName="root"
-           connectionPassword="qwerty"
-
-           userTable="user"
-           userNameCol="login"
-           userCredCol="password"
-
-           userRoleTable="user_role"
-           roleNameCol="role">
-        <CredentialHandler
-            className="org.apache.catalina.realm.MessageDigestCredentialHandler"
-            algorithm="MD5" />
+    <Realm
+        className="org.apache.catalina.realm.JDBCRealm"
+        connectionName="root"
+        connectionPassword="qwerty"
+        connectionURL="jdbc:mysql://localhost:3306/reclama_guarapuava_db"
+        driverName="com.mysql.jdbc.Driver"
+        roleNameCol="role"
+        userCredCol="password"
+        userNameCol="login"
+        userRoleTable="user_role"
+        userTable="user">
+        <CredentialHandler algorithm="MD5" className="org.apache.catalina.realm.MessageDigestCredentialHandler"/>
     </Realm>
-
+    
 </Context>

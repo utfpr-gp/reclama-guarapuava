@@ -63,4 +63,18 @@ public class OccurrenceService extends AbstractService<Long, Occurrence> {
         }
         return total;
     }
+
+    public List<Occurrence> getByUser(Long id) {
+        List<Occurrence> occurrences = null;
+        try {
+            JPAUtil.beginTransaction();
+            occurrences = ((OccurrenceDAO) dao).occurrenceUser(id);
+            JPAUtil.commit();
+        } catch (Exception e) {
+            JPAUtil.rollBack();
+        } finally {
+            JPAUtil.closeEntityManager();
+        }
+        return occurrences;
+    }
 }
