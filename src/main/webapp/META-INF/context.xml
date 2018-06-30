@@ -3,7 +3,7 @@
     <Realm
         className="org.apache.catalina.realm.JDBCRealm"
         connectionName="root"
-        connectionPassword="qwerty"
+        connectionPassword="root"
         connectionURL="jdbc:mysql://localhost:3306/reclama_guarapuava_db"
         driverName="com.mysql.jdbc.Driver"
         roleNameCol="role"
@@ -13,5 +13,5 @@
         userTable="user">
         <CredentialHandler algorithm="MD5" className="org.apache.catalina.realm.MessageDigestCredentialHandler"/>
     </Realm>
-    
+
 </Context>

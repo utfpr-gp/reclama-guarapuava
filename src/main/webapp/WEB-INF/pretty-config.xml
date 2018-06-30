@@ -58,15 +58,19 @@
         <view-id value="/view/admin/categorias-cadastro.xhtml"/>
     </url-mapping>
 
-    <url-mapping id="admin-new-neighborhood">
-        <pattern value="/admin/bairros/novo"/>
-        <view-id value="/view/admin/bairros-cadastro.xhtml"/>
-    </url-mapping>
-
+        <url-mapping id="admin-new-neighborhood">
+            <pattern value="/admin/bairros/novo"/>
+            <view-id value="/view/admin/bairros-cadastro.xhtml"/>
+        </url-mapping>
+    -->
     <url-mapping id="admin-list-occurrences">
         <pattern value="/admin/ocorrencias"/>
         <view-id value="/view/admin/ocorrencias.xhtml"/>
-    </url-mapping>-->
+    </url-mapping>
+    <url-mapping id="admin-occurrences-charts">
+        <pattern value="/admin/graficos"/>
+        <view-id value="/view/admin/graficos.xhtml"/>
+    </url-mapping>
     <!--=========== ROTAS ADMIN =============-->
 
     <!--=========== ROTAS DE ERRO =============-->

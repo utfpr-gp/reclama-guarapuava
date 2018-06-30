@@ -29,9 +29,9 @@ import javax.persistence.Table;
 @Table(name = "occurrence")
 public class Occurrence implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     private static final String[] ALL_STATES = {"Solucionado", "Não Solucionado", "Urgente"};
 
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
