@@ -13,22 +13,26 @@
         <p:messages/>
 
         <div class="container">
-            <artigle>
-                <header class="center-align">
-                    <h3>Gráficos</h3>
-                </header>
 
-                <div class="divider"></div>
-                <h:form>
-                    <p:chart  id="chart" type="pie" model="#{pieChartBean.pieModel1}" style="width:400px;height:300px;"  />
-                </h:form>
+            <header class="center-align">
+                <h3>Gráficos</h3>
+            </header>
 
-                <div class="divider"></div>
-                <p:chart type="pie" model="#{pieChartBean.pieModel2}" style="width:400px;height:300px" />
-            </artigle>
+            <div class="divider"></div>
+            <p:outputPanel id="graficos" style="text-align: center">
+                <p:panelGrid id="panelCharts" columns="2" layout="grid">
+                    <p:chart id="chart" type="pie" model="#{chartBean.pieModel1}" style="height:350px;"/>
+
+                    <p:chart id="barChart" type="bar" model="#{chartBean.barModel1}" style="height: 350px;" />
+
+                    <p:chart id="barChart2" type="bar" model="#{chartBean.barModel2}" style="height: 350px;" />
+
+                    <p:chart id="barChart3" type="bar" model="#{chartBean.barModel3}" style="height: 350px;" />
+
+                </p:panelGrid>
+            </p:outputPanel>
+
+
         </div>
     </ui:define>
 </ui:composition>
-
-
-
