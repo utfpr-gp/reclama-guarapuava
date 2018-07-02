@@ -19,16 +19,14 @@
                 </header>
 
                 <div class="divider"></div>
-                <h:form>
-                    <p:chart  id="chart" type="pie" model="#{pieChartBean.pieModel1}" style="width:400px;height:300px;"  />
-                </h:form>
+
+                <p:chart  id="chart" type="pie" model="#{chartBean.pieModel1}" style="width:400px;height:300px;"  />
+
 
                 <div class="divider"></div>
-                <p:chart type="pie" model="#{pieChartBean.pieModel2}" style="width:400px;height:300px" />
+                <p:chart id="barChart" type="bar" model="#{chartBean.barModel1}" style="width: 400px; height: 350px;" />
+
             </artigle>
         </div>
     </ui:define>
 </ui:composition>
-
-
-
