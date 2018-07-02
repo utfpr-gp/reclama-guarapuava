@@ -16,7 +16,7 @@ import org.primefaces.model.chart.PieChartModel;
  * @author tnks
  */
 @ManagedBean
-public class PieChartBean implements Serializable {
+public class ChartBean implements Serializable {
 
     private PieChartModel pieModel1;
     private PieChartModel pieModel2;
