@@ -10,7 +10,9 @@
 
     <ui:define name="content">
         <header id="home-page-header">
-            <img id="image-header" src="resources/images/gp.jpg" />
+            <div class="container">
+                <img id="image-header" src="resources/images/gp.jpg" />
+            </div>
             <div id="box-action">
                 <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
                     <pretty:link mappingId="occurrence-record" class="waves-effect waves-light btn blue darken-3">
@@ -25,12 +27,14 @@
                 </h:panelGroup>
             </div>
             <div id="box-text-header" class="center-align">
+                <p>Ajude a construir uma Guarapuava melhor.</p>
+                <p>Entre e nos conte o problema que você identificou.</p>
             </div>
         </header>
         <article id="index-content" class="container">
             <header class="center-align">
-                <h1>Publique, veja, avalie, compartilhe e opine</h1>
-                <span>para juntos fazermos uma cidade melhor</span>
+                <h3>Publique, veja, avalie, compartilhe e opine.</h3>
+                <h4>Para juntos fazermos uma cidade melhor.</h4>
             </header>
             <div class="row">
                 <div class="event-card grey lighten-1 col s12">

@@ -32,10 +32,11 @@
         <header>
             <nav class="blue lighten-4">
                 <div class="nav-wrapper">
+                    <div class="container">
                     <pretty:link mappingId="home">
                         <f:view><img id="logo" src="#{resource['images/logo.png']}" class="responsive-img" /></f:view>
                     </pretty:link>
-
+                    
                     <h:panelGroup rendered="#{not empty sessionUserBean.currentUser}">
                         <ul class="right">
                             <li>
@@ -45,24 +46,13 @@
                             </li>
 
                             <li>
-                                <pretty:link mappingId="occurrences">
-                                    <f:view>Ocorrências</f:view>
-                                </pretty:link>
-                            </li>
-
-                            <li>
-                                <pretty:link mappingId="occurrence-record">
-                                    <f:view>Nova Ocorrência</f:view>
-                                </pretty:link>
-                            </li>
-
-                            <li>
                                 <h:form>
-                                    <h:commandLink action="#{loginBean.logoutB()}" value="Logout"></h:commandLink>
+                                    <h:commandLink action="#{loginBean.logoutB()}" value="Sair"></h:commandLink>
                                 </h:form>
                             </li>
                         </ul>
                     </h:panelGroup>
+                    </div>
                 </div>
             </nav>
         </header>

@@ -39,8 +39,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.40</version>
-            <type>jar</type>
+            <version>5.1.46</version>
         </dependency>
 
         <!-- LOG -->
@@ -69,7 +68,7 @@
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>6.0</version>
+            <version>6.2</version>
         </dependency>
 
         <!-- Implementacao do Bean Validation -->
@@ -81,11 +80,8 @@
         </dependency>
 
         <!--https://mvnrepository.com/artifact/org.primefaces.themes/south-street-->
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>south-street</artifactId>
-            <version>1.0.10</version>
-        </dependency>
+
+
 
         <!-- Prettyfaces-->
         <!-- for JSF 2.x -->
@@ -93,12 +89,6 @@
             <groupId>com.ocpsoft</groupId>
             <artifactId>prettyfaces-jsf2</artifactId>
             <version>3.3.3</version>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -148,31 +138,7 @@
             <!--</configuration>-->
             <!--</plugin>-->
 
-            <!-- PODER CHAMAR OS ARQUIVOS PELO LIBRARY NAME-->
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-
-                        <configuration>
-                            <outputDirectory>${basedir}/target/reclama-guarapuava-1.0-SNAPSHOT/resources
-                            </outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/webapp/resources</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 </project>
+
